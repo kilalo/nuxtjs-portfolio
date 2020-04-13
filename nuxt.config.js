@@ -6,12 +6,12 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - ' + process.env.npm_package_name,
+    titleTemplate: '%s - Killian Challeau - kilalo.io',
     title: process.env.npm_package_name || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: 'killian challeau kilalo' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -25,7 +25,7 @@ export default {
   ** Global CSS
   */
   css: [
-    '@/assets/scss/variables.scss'
+    '@/assets/scss/all.scss'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -48,7 +48,7 @@ export default {
   ** https://github.com/nuxt-community/vuetify-module
   */
   vuetify: {
-    customVariables: ['~/assets/scss/variables.scss'],
+    customVariables: ['~/assets/scss/all.scss'],
     theme: {
       dark: true,
       themes: {

@@ -1,6 +1,6 @@
 <template>
   <v-layout
-    class="layout container">
+    class="main-container">
     <div class="justify-space-around layout">
       <div class="content">
         <div class="content__container">
@@ -23,9 +23,9 @@
     <div 
       class="title-second">
       <h1>
-        je suis &nbsp;<span class="txt-color">developpeur web</span>.
+        je suis &nbsp;<span class="txt-color">développeur web</span>.
       </h1>
-      <span class="title-mobile-second">developpeur web full stack.</span>
+      <span class="title-mobile-second">développeur web full stack.</span>
     </div>
   </v-layout>
 </template>
@@ -34,7 +34,46 @@
 export default {
    head () {
     return {
-      title: 'Killian Challeau',
+      title: 'Accueil',
+    }
+  },
+  data () {
+    return {
+      loader: true,
+      clipped: false,
+      drawer: false,
+      fixed: false,
+      items: [
+        {
+          icon: 'mdi-home-outline',
+          title: 'Accueil',
+          to: '/'
+        },
+        {
+          icon: 'mdi-lightbulb-on-outline',
+          title: 'Projets',
+          to: '/projects'
+        },
+        {
+          icon: 'mdi-xml',
+          title: 'Compétences',
+          to: '/skills'
+        },
+         {
+          icon: 'mdi-file-outline',
+          title: 'Voir mon CV',
+          to: '/resume'
+        },
+        {
+          icon: 'mdi-email-outline',
+          title: 'Contact',
+          to: '/contact'
+        }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Kilalo.io'
     }
   },
 }

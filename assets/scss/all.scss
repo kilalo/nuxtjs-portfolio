@@ -1,0 +1,25 @@
+$breakpoints: (
+    mobile: 480px,
+    tablet: 650px,
+    desktop: 950px,
+    wide: 1264px,
+    hd: 1408px,
+);
+  
+
+@mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+    @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+      $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+    }
+    @media screen and (min-width: #{$mq-breakpoint}) {
+      @content;
+    }
+  }
+  
+  @mixin gradient($direction, $gradients...) {
+    background-color: nth($gradients, 1);
+    background-image: linear-gradient(to $direction, nth($gradients, 1), nth($gradients, 2));
+  }
+
+@import '_variables';
+@import '_grid';

@@ -125,16 +125,16 @@
        <loader 
         v-if="loader" />
         <vue-particles
+          :click-effect="false"
           :particles-number="50"
           color="#dedede" />
-      <v-container>
+      <v-container
+        class="h100">
           <nuxt />
       </v-container>
     </v-content>
     <v-footer
-      class="text-center footer"
-      :fixed="fixed"
-      app>
+      class="text-center footer">
       <span>Made with Nuxt.js - kilalo.io </span>
     </v-footer>
   </v-app>
@@ -155,7 +155,6 @@ export default {
       loader: true,
       clipped: false,
       drawer: false,
-      fixed: false,
       items: [
         {
           icon: 'mdi-home-outline',
@@ -183,9 +182,6 @@ export default {
           to: '/contact'
         }
       ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
       title: 'Kilalo.io'
     }
   },

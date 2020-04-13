@@ -11,8 +11,13 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "TagCloud": "^2.1.0",
     "epic-spinners": "^1.1.0",
     "nuxt": "^2.0.0",
+    "sass": "^1.26.3",
+    "sass-mq": "^5.0.1",
+    "vee-validate": "^3.2.5",
+    "vue-d3-cloud": "^0.2.0",
     "vue-particles": "^1.0.9"
   },
   "devDependencies": {

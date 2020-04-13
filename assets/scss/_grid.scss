@@ -1,0 +1,76 @@
+.grid {
+    position: relative;
+  
+    & > div {
+      float: left;
+    }
+  
+    &:after {
+      content: "";
+      clear: both;
+      display: block;
+    }
+  
+    &.grid--marge {
+      margin-left: -0.5em;
+      margin-right: -0.5em;
+  
+      & > div {
+        padding-left: 0.5em;
+        padding-right: 0.5em;
+      }
+    }
+  
+    &.grid--dib {
+      & > div {
+        float: none;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: -0.25em;
+      }
+    }
+  
+    &.grid--vam > div {
+      vertical-align: middle;
+    }
+  }
+  
+  @for $i from 1 through 12 {
+    .g#{$i}:nth-child(1n) { width: #{(100% / 12 ) * $i}; clear: none }
+    .g0 { display: none }
+  }
+  
+  @for $i from 1 through 12 {
+    @include mq (mobile) {
+      .g#{$i}--mobile:nth-child(1n)  { width: #{(100% / 12 ) * $i}; clear: none }
+      .g0--mobile  { display: none }
+    } 
+  }
+  
+  @for $i from 1 through 12 {
+    @include mq (tablet) {
+      .g#{$i}--tablet:nth-child(1n) { width: #{(100% / 12 ) * $i}; clear: none }
+      .g0--tablet { display: none }
+    }
+  }
+  
+  @for $i from 1 through 12 {
+    @include mq (desktop) {
+      .g#{$i}--desktop:nth-child(1n) { width: #{(100% / 12 ) * $i}; clear: none }
+      .g0--desktop { display: none }
+    }
+  }
+  
+  @for $i from 1 through 12 {
+    @include mq (wide) {
+      .g#{$i}--wide:nth-child(1n){ width: #{(100% / 12 ) * $i}; clear: none }
+      .g0--wide { display: none }
+    }
+  }
+  
+  @for $i from 1 through 12 {
+    @include mq (hd) {
+      .g#{$i}--hd:nth-child(1n) { width: #{(100% / 12 ) * $i}; clear: none }
+      .g0--hd { display: none }
+    }
+  }

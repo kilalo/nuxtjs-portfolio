@@ -5,40 +5,73 @@ $color : #5F9EA0;
        url('~assets/fonts/sweethampton-webfont.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+}
+@font-face {
+  font-family: 'grayscale';
+  src: url('~assets/fonts/grayscale_signature-webfont.woff2') format('woff2'),
+       url('~assets/fonts/grayscale_signature-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 
 }
+a {
+  color: inherit !important;
+  text-decoration: none;
+}
+.font-style {
+  font-family: 'grayscale';
+}
+.txt-amber {
+  color: #ffbf00;
+}
 // FONT SIZE
+.fzxs {
+  font-size: 0.9em;
+}
 .fzs {
   font-size: 1em;
 }
-.fzxs {
-  font-size: 1.25em;
-}
 .fzm {
-  font-size: 1.5em;
+  font-size: 1.3em;
 }
 .fzl {
-  font-size: 1.75em;
+  font-size: 1.7em;
 }
 .fzxl {
   font-size: 2em;
 }
-
+.my-card {
+  height: 500px;
+}
 body {
-    font-family: Google Sans,sans-serif
+    font-family: Google Sans,sans-serif;
+    overflow: auto;
+    background-color: #121212 !important;
 }
 h1 {
     font-size: 6.5em;
+    font-weight: normal !important;
+}
+.img-container {
+  width: 100%;
+  min-height: 200px;
+}
+.project-img {
+  width: 100%;
+  object-fit: cover
 }
 .particles-js-canvas-el {
   position: absolute;
 }
+.v-footer {
+  padding: 0 !important;
+}
 .loader-block {
    background-color: #121212;
    width:100%;
-   height:100%;
+   height:101%;
    z-index: 1000;
-   position: absolute;
+   position: fixed;
 }
 .loader {
   position: absolute;
@@ -48,6 +81,16 @@ h1 {
 }
 .fwn {
   font-weight: normal;
+}
+.abs-b0 {
+  bottom: 0;
+}
+.contact-form {
+  max-width: 700px;
+  margin: auto;
+}
+.ma {
+  margin: auto;
 }
 .hamburger {
   position: absolute !important;
@@ -60,9 +103,24 @@ h1 {
   line-height: 0em;
 }
 .title-mobile-first, .title-mobile-second {
-  font-family: 'sweethampton';
+  font-family: 'grayscale';
+  font-weight: normal;
   display: none;
 }
+.big-ico {
+  font-size: 100px !important;
+}
+.big-btn {
+  height: 200px !important;
+  span {
+    display: grid;
+  }
+}
+// @media screen and (min-width: 960px) and (max-width: 1263px) {
+//   .container {
+//     max-width: none !important;
+//   }
+// }
 @media screen and (min-width: 951px) and (max-width: 1400px) {
   h1 {
     font-size: 5.5em;
@@ -70,7 +128,8 @@ h1 {
 }
 @media screen and (max-width: 950px) {
   h1 {
-    font-size: 4.5em;
+    font-size: 4.2em;
+    font-weight: normal;
   }
 }
 @media screen and (min-width: 501px) and (max-width: 750px) {
@@ -83,7 +142,7 @@ h1 {
   }
   .title-mobile-second {
     display: block !important;
-    font-size: 3em;
+    font-size: 2.8em;
   }
   .title-main {
     left:100px !important;
@@ -93,7 +152,6 @@ h1 {
     right:100px !important;
   }
   .footer {
-    height: 10px !important;
     span {
         font-size:12px;
         top: 0 !important;
@@ -110,17 +168,16 @@ h1 {
   }
   .title-mobile-second {
     display: block !important;
-    font-size: 2em;
+    font-size: 1.9em;
   }
   .title-main {
     left:30px !important;
   }
   .title-second {
     bottom: 20% !important;
-    right:30px !important;
+    right:20px !important;
   }
   .footer {
-    height: 10px !important;
     span {
         font-size:12px;
         top: 0 !important;
@@ -157,8 +214,10 @@ h1 {
 .abs-mt50 {
     top: 45%;
 }
-
 .container {
+  overflow: auto;
+}
+.main-container {
     width: 100%;
     height: 100%;
     min-height: 500px;
@@ -175,6 +234,9 @@ h1 {
 .w100 {
     width: 100%;
 }
+.h100 {
+  height: 100%;
+}
 
 body {
   width: 100%;
@@ -184,13 +246,15 @@ body {
 }
 
 .title-main {
-  font-family: 'sweethampton';
+  font-family: 'grayscale';
+  font-weight: normal;
   position: absolute;
   top: 35%;
   left: 100px
 }
 .title-second {
-  font-family: 'sweethampton';
+  font-family: 'grayscale';
+  font-weight: normal;
   position: absolute;
   bottom: 20%;
   right: 100px
@@ -221,14 +285,13 @@ body {
 }
 // OVERRIDE DEFAULT FOOTER
 .footer {
-    background-color: #121212!important;
+    bottom: 15px;
+    background-color: transparent !important;
     width: 100%;
     color: $color !important;
-    height: 30px;
     span {
         left: 50%;
         position: absolute;
-        top: 10px;
         transform: translate(-50% , -50%);
         width: 100%;
     }
