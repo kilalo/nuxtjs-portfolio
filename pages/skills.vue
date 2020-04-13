@@ -2,7 +2,7 @@
   <v-container
   	class="h100">
 		<v-row
-			class="h100">
+			class="h100 mb-10">
 			<v-col
 				class="ma"
 				cols="12" lg="6">
@@ -17,7 +17,7 @@
 			<v-col
 				class="ma"
 				cols="12" lg="6">
-				<div class="w100 tagcloud" />
+				<div class="mb-10 mt-10 w100 tagcloud" />
 			</v-col>
 		</v-row>
   </v-container>
@@ -57,9 +57,16 @@ export default {
 
 		const container = '.tagcloud';
 		const texts = this.words
-		const options = {};
+		const options = {
+			radius: 200,
+			maxSpeed: 'slow'
+		};
 
-		TagCloud(container, texts, options);
+		const cloud = TagCloud(container, texts, options);
+		cloud.$el.style.cssText = 'margin : auto; position: relative; width: 200px; height: 200px';
+		cloud.items.forEach((item) => {
+			item.el.style.color = '#5F9EA0'
+		})
 
 	}
 }
