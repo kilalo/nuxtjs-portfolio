@@ -77,6 +77,16 @@
 				</form>
 			</ValidationObserver>
 		</div>
+		<v-snackbar
+      v-model="success">
+      Mail envoyé avec succès !
+      <v-btn
+        color="#5F9EA0"
+        text
+        @click="success = false">
+        Fermer
+      </v-btn>
+    </v-snackbar>
 	</v-container>
 </template>
 <script>
@@ -110,12 +120,20 @@ export default {
 			name: '',
 			email: '',
 			subject: '',
-			content: ''
+			content: '',
+			success: false
 		}
 	},
 	methods: {
-		submit () {
-			this.$refs.observer.validate()
+		async submit () {
+		  const isValid = await this.$refs.observer.validate();
+			if(isValid) {
+				this.$store.dispatch('LOADER')
+				setTimeout(() => {
+					this.$store.dispatch('LOADER')
+					this.success = true
+				}, 1500)
+			}
 		},
 	},
 }

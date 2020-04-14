@@ -185,7 +185,6 @@ export default {
   },
   data () {
     return {
-      loader: true,
       clipped: false,
       drawer: false,
       items: [
@@ -221,16 +220,21 @@ export default {
   computed: {
     path() {
       return this.$route.path
+    },
+    loader () {
+      return this.$store.state.loader
     }
   },
   mounted() {
-    this.animate()
+    setTimeout(() => {
+      this.$store.dispatch('LOADER')
+    }, 500)
   },
   methods: {
     animate () {
-      this.loader = true
+      this.$store.dispatch('LOADER')
       setTimeout(() => {
-        this.loader = false
+        this.$store.dispatch('LOADER')
       }, 500)
     }
   }
