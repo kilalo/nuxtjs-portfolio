@@ -49,7 +49,8 @@ export default {
 			'SASS',
 			'Apache',
 			'Nginx',
-			'Linux'
+			'Linux',
+			'Java'
 	  ],
     }
 	},

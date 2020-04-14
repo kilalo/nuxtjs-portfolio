@@ -11,7 +11,6 @@
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
-          :href="item.external_link ? 'https://linkedin.com' : null"
           router
           exact
           active-class="active-btn"

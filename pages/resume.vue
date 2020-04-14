@@ -5,9 +5,12 @@
 			cols="12" md="6"
 			class="ma">
 			<v-btn
-				outlined
+				text
 				class="d-block big-btn my-10 ma"
 				:ripple="false">
+				<a
+					href="/CV_KC_2020.pdf"
+					target="_blank">
 					<v-icon
 						class="d-block big-ico ma-2">
 						mdi-file-pdf-outline
@@ -16,13 +19,14 @@
 						class="fzxs">
 						Télécharger la version PDF
 					</span>
-			</v-btn>
+				</a>
+				</v-btn>
 		</v-col>
 		<v-col
 			cols="12" md="6"
 			class="ma">
 			<v-btn
-				outlined
+				text
 				class="d-block big-btn my-10 ma"
 				:ripple="false">
 				<a 
