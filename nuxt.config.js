@@ -68,7 +68,7 @@ export default {
   ** Build configuration
   */
   build: {
-    transpile: ['vue-particles', 'epic-spinners'],
+    transpile: ['vue-particles', 'epic-spinners', 'vee-validate'],
     /*
     ** You can extend webpack config here
     */

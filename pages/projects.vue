@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <div class="grid h100">
+    <div class="grid h100 mb-5">
 			<div
 			  v-for="project in projects"
     		:key="project.id"
@@ -40,7 +40,7 @@
               v-for="techno in project.technologies"
               :key="project.title + '-' + techno">
               {{ techno }}
-            </v-chip>
+            </v-chip> 
           </v-chip-group>
         </v-card-text>
         <v-card-actions>

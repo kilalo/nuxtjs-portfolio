@@ -1,26 +1,26 @@
 <template>
-  <v-container
-  	class="h100">
-		<v-row
-			class="h100 mb-10">
-			<v-col
-				class="ma"
-				cols="12" lg="6">
-				<h1
-					class="w100 d-inline-block my-10 font-style txt-color text-center">
-					Compétences
-				</h1>
-				<p>
-					{{ text }}
-				</p>
-			</v-col>
-			<v-col
-				class="ma"
-				cols="12" lg="6">
-				<div class="mb-10 mt-10 w100 tagcloud" />
-			</v-col>
-		</v-row>
-  </v-container>
+	<v-row
+		class="h100 mb-10">
+		<v-col
+			class="ma"
+			cols="12" lg="6">
+			<h1
+				class="w100 d-inline-block my-10 font-style txt-color text-center">
+				Compétences
+			</h1>
+			<p>
+				Au cours de mes expériences en tant que développeur, autant sur le plan personnel que professionnel, 
+				j'ai été amené à utiliser bon nombre de langages et technologies. Initialement développeur back end de par ma formation, 
+				je suis de plus en plus amené à utiliser les outils modernes de développement front end. 
+				Si vous voulez en savoir plus sur mon profil, rendez vous sur ma page linkedin ou sur mon CV en ligne.
+			</p>
+		</v-col>
+		<v-col
+			class="ma"
+			cols="12" lg="6">
+			<div class="big-bottom-marge mt-10 w100 tagcloud" />
+		</v-col>
+	</v-row>
 </template>
 <script>
 
@@ -32,7 +32,6 @@ export default {
   },
 	data () {
     return {
-		text : "Au cours de mes expériences en tant que développeur, autant sur le plan personnel que professionnel, j'ai été amené à utiliser bon nombre de langages et technologies. Initialement développeur back end de par ma formation, je suis de plus en plus amené à utiliser les outils modernes de développement front end. Si vous voulez en savoir plus sur mon profil, rendez vous sur ma page linkedin",
 	  words: [
 		  'HTML5',
 		  'CSS3',
@@ -40,7 +39,6 @@ export default {
 		  'Vue',
 		  'Nuxt',
 		  'React',
-		  'Native',
 		  'Symfony',
 		  'Laravel',
 		  'Git',
@@ -48,7 +46,10 @@ export default {
 		  'REST',
 		  'MySQL',
 		  'jQuery',
-		  'SASS'
+			'SASS',
+			'Apache',
+			'Nginx',
+			'Linux'
 	  ],
     }
 	},

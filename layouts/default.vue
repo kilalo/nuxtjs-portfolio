@@ -11,6 +11,7 @@
           v-for="(item, i) in items"
           :key="i"
           :to="item.to"
+          :href="item.external_link ? 'https://linkedin.com' : null"
           router
           exact
           active-class="active-btn"
@@ -22,6 +23,18 @@
           </v-list-item-action>
           <v-list-item-content>
             <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+          href='https://linkedin.com/in/killian-challeau'
+          target="_blank"
+          :ripple="false"
+          class="my-5">
+          <v-list-item-action>
+            <v-icon>mdi-linkedin</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="'Linkedin'" />
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -48,7 +61,8 @@
           active-class="active-btn"
           :ripple="false"
           :class="path == '/' ? 'active-btn' : null"
-          :to="'/'"
+          :to="{ path: '/' }"
+          replace
           @click.stop="animate()">
             <v-icon
               class="mb-1 mr-2">
@@ -63,7 +77,8 @@
           :ripple="false"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           :class="path == '/projects' ? 'active-btn' : null"
-          :to="'projects'"
+          :to="{ path: '/projects' }"
+          replace
           @click.stop="animate()">
             <v-icon
               class="mb-1 mr-2">
@@ -76,7 +91,8 @@
         </v-btn>
         <v-btn
           :ripple="false"
-          :to="'skills'"
+          :to="{ path: '/skills' }"
+          replace
           :class="path == '/skills' ? 'active-btn' : null"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
@@ -91,7 +107,8 @@
         </v-btn>
         <v-btn
           :ripple="false"
-          :to="'resume'"
+          :to="{ path: '/resume' }"
+          replace
           :class="path == '/resume' ? 'active-btn' : null"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
@@ -101,12 +118,13 @@
             </v-icon>  
             <span
               class="d-none no-box-shadow d-md-block align-self-center">
-              Voir le CV
-            </span>
+              curriculum vitae
+            </span> 
         </v-btn>
         <v-btn          
           :ripple="false"
-          :to="'contact'"
+          :to="{ path: '/contact' }"
+          replace
           :class="path == '/contact' ? 'active-btn' : null"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
@@ -119,6 +137,22 @@
               Contact
             </span>
         </v-btn>
+        <v-btn          
+          :ripple="false"
+          href="https://linkedin.com/in/killian-challeau"
+          target="_blank"
+          replace
+          class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
+          @click.stop="animate()">
+            <v-icon
+              class="mb-1 mr-2">
+              mdi-linkedin
+            </v-icon>
+            <span
+              class="d-none d-md-block align-self-center">
+              LINKEDIN
+            </span>
+        </v-btn>
       </div>
     </v-app-bar>
     <v-content>
@@ -129,7 +163,7 @@
           :particles-number="50"
           color="#dedede" />
       <v-container
-        class="h100">
+        class="h100 oh">
           <nuxt />
       </v-container>
     </v-content>
@@ -173,14 +207,14 @@ export default {
         },
          {
           icon: 'mdi-file-outline',
-          title: 'Voir mon CV',
+          title: 'Curriculum vitae',
           to: '/resume'
         },
         {
           icon: 'mdi-email-outline',
           title: 'Contact',
           to: '/contact'
-        }
+        },
       ],
       title: 'Kilalo.io'
     }

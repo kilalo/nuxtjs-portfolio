@@ -70,7 +70,7 @@
 					<v-btn
 						outlined
 						color="#5F9EA0" 
-						class="mr-4 ma posa" 
+						class="ma" 
 						@click="submit">
 						Envoyer
 					</v-btn>
@@ -100,22 +100,23 @@
     message: 'Le champ email doit être valide',
   })
 
-  export default {
-    components: {
-      ValidationProvider,
-      ValidationObserver,
-    },
-    data: () => ({
-      name: '',
+export default {
+	components: {
+		ValidationProvider,
+		ValidationObserver,
+	},
+	data () {
+		return {
+			name: '',
 			email: '',
 			subject: '',
 			content: ''
-    }),
-
-    methods: {
-      submit () {
-        this.$refs.observer.validate()
-      },
-    },
-  }
+		}
+	},
+	methods: {
+		submit () {
+			this.$refs.observer.validate()
+		},
+	},
+}
 </script>

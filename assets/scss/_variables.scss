@@ -14,6 +14,9 @@ $color : #5F9EA0;
   font-style: normal;
 
 }
+.v-application {
+  font-family: Montserrat,sans-serif !important;
+}
 a {
   color: inherit !important;
   text-decoration: none;
@@ -60,6 +63,9 @@ h1 {
   width: 100%;
   object-fit: cover
 }
+.oh {
+  overflow: hidden !important;
+}
 .particles-js-canvas-el {
   position: absolute;
 }
@@ -97,6 +103,9 @@ h1 {
   left: 20px;
   bottom:5px;
 }
+.big-bottom-marge {
+  margin-bottom: 6em;
+}
 .nav-title {
   font-family: 'sweethampton';
   font-size: 1.6em;
@@ -109,6 +118,9 @@ h1 {
 }
 .big-ico {
   font-size: 100px !important;
+}
+.big-ico:after {
+  width: 0px !important;
 }
 .big-btn {
   height: 200px !important;
