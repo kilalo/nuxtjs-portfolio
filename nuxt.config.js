@@ -15,27 +15,27 @@ export default {
       // OPENGRAPH
       {
         hid: 'og:title',
-        property: 'og:title',
+        name: 'og:title',
         content: 'Killian Challeau - Développeur web'
       },
       {
         hid: 'og:type',
-        property: 'og:type',
+        name: 'og:type',
         content: 'website'
       },
       {
         hid: 'og:url',
-        property: 'og:url',
+        name: 'og:url',
         content: 'https://kilalo.io/'
       },
       {
         hid: 'og:description',
-        property: 'og:description',
+        name: 'og:description',
         content: 'Killian Challeau, jeune développeur web de Bordeaux. Venez découvrir mon portfolio.'
       },
       {
         hid: 'og:image',
-        property: 'og:image',
+        name: 'og:image',
         content: this.BASE_URL + '/kilalo-project.png'
       },
     ],
@@ -68,6 +68,7 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    '@nuxtjs/axios',
   ],
   /*
   ** vuetify module configuration
@@ -98,7 +99,11 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (config, ctx) {
+    extend (config, { isDev, isClient }) {
+
+      config.node = {
+        fs: 'empty'
+      }
     }
   }
 }

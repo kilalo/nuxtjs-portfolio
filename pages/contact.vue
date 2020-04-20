@@ -87,6 +87,16 @@
         Fermer
       </v-btn>
     </v-snackbar>
+		<v-snackbar
+      v-model="error">
+      Échec dans l'envoi du mail !
+      <v-btn
+        color="red"
+        text
+        @click="error = false">
+        Fermer
+      </v-btn>
+    </v-snackbar>
 	</v-container>
 </template>
 <script>
@@ -121,18 +131,34 @@ export default {
 			email: '',
 			subject: '',
 			content: '',
-			success: false
+			success: false,
+			error: false	
 		}
 	},
 	methods: {
+		reset() {
+			this.name = ''
+			this.email = ''
+			this.subject = ''
+			this.content = ''
+		},
 		async submit () {
 		  const isValid = await this.$refs.observer.validate();
 			if(isValid) {
+				const data = {
+					name: this.name,
+					subject: this.subject,
+					email: this.email,
+					content: this.content
+				}
 				this.$store.dispatch('LOADER')
-				setTimeout(() => {
+				this.$axios.post('https://api.kilalo.io/api/mail', data).then(() => {
 					this.$store.dispatch('LOADER')
 					this.success = true
-				}, 1500)
+				}).catch(() => {
+					this.$store.dispatch('LOADER')
+					this.error = true
+				})
 			}
 		},
 	},
