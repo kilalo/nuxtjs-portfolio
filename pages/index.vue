@@ -32,9 +32,13 @@
 
 <script>
 export default {
+  metaInfo: {
+    title: 'Accueil'
+  },
    head () {
     return {
-      title: 'Accueil',
+      title: 'Accueil', 
+     
     }
   },
   data () {

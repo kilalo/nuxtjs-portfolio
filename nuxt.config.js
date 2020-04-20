@@ -1,17 +1,43 @@
 import colors from 'vuetify/es5/util/colors'
-
 export default {
   mode: 'universal',
   /*
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - Killian Challeau - kilalo.io',
-    title: process.env.npm_package_name || '',
+    titleTemplate: '%s - Killian Challeau - Développeur web',
+    title: 'Killian Challeau - Développeur web',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'killian challeau kilalo' }
+      { name: 'keywords', content: 'développeur, developer, killian, challeau, web, full, stack, kilalo, bordeaux'},
+      { hid: 'description', name: 'description', content: 'Killian Challeau, jeune développeur web de Bordeaux. Venez découvrir mon portfolio.' },
+      // OPENGRAPH
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Killian Challeau - Développeur web'
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        hid: 'og:url',
+        property: 'og:url',
+        content: 'https://kilalo.io/'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Killian Challeau, jeune développeur web de Bordeaux. Venez découvrir mon portfolio.'
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: this.BASE_URL + '/kilalo-project.png'
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

@@ -177,6 +177,7 @@
 import Vue from 'vue'
 import Loader from '~/components/loader.vue'
 import VueParticles from 'vue-particles'
+
 Vue.use(VueParticles)
 Vue.use(Loader)
 export default {
