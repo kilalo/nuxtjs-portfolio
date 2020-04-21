@@ -10,7 +10,16 @@
         max-width="374">
         <v-img
           height="240"
-          :src="project.img" />
+          :src="project.img">
+          <template v-slot:placeholder>
+            <v-row
+              class="fill-height ma-0"
+              align="center"
+              justify="center">
+              <v-progress-circular indeterminate color="grey lighten-5"></v-progress-circular>
+            </v-row>
+          </template>
+        </v-img>
         <v-card-title
           class="pb-2">
           {{ project.title }}
@@ -181,7 +190,7 @@ export default {
           id: 1,
           title: 'Portfolio',
           description: 'Création d’un site Portfolio permettant de mettre en avant mes expériences et projets en tant que développeur. Ce projet est aussi l\'occasion de faire le point sur l\'ensemble des compétences que j\'ai pu acquérir et ainsi décider ce vers quoi je souhaite m\'orienter pour la suite de ma carrière professionnelle',
-          img: '/kilalo-project.png',
+          img: '/kilalo-project.jpg',
           date: 'Avril 2020',
           technologies: ['Vue','Nuxt'],
           role: 'Développeur Front-end',
@@ -192,7 +201,7 @@ export default {
           id: 2,
           title: 'Movies App',
           description: 'Dans une volonté de vouloir se former pendant la crise du COVID-19, cette application est le fruit de la mise en pratique de la formation React Native disponible sur le site d’openclassroom. L’app permet de rechercher des films, consulter les nouveautés et d’en ajouter à sa liste de favoris.',
-          img: '/movies-project.png',
+          img: '/movies-project.jpg',
           date: 'Mars 2020',
           technologies: ['React','React Native'],
           role: 'Développeur Front-end',
@@ -202,7 +211,7 @@ export default {
           id: 3,
           title: 'Sports Village',
           description: 'Intégration de l’équipe de développeurs de l’entreprise Monkey Monk afin de développer un site d’e-commerce de vente d\'équipement sportif. L’enjeu ici était de pouvoir proposer à l’utilisateur une plateforme tout en un permettant de :',
-          img: '/sv-project.png',
+          img: '/sv-project.jpg',
           date: 'Juillet 2019',
           technologies: ['Vue','Nuxt', 'Laravel', 'Docker'],
           role: 'Développeur Full-stack',
@@ -219,7 +228,7 @@ export default {
           id: 4,
           title: 'Miuseec',
           description: 'MIUSEEC est un intranet proposant d’un côté un outil de gestion de tiers lieu (réservation de salle, déclaration d’incidents, annuaire, agenda…) et de l’autre un outil de datavisualisation métrologique. Le parti pris est d’afficher des données mesurées ainsi que des références ou cibles permettant aux usagers de comparer les consommations énergétiques réelles avec des valeurs « objectifs ». Pour chaque valeur mesurée, une référence ou valeur cible est donc calculée. Mon rôle au cours de ce projet professionnel était la refonte graphique, le développement d’un timeline ainsi que la conception de sa V2.',
-          img: '/miuseec-project.png',
+          img: '/miuseec-project.jpg',
           date: 'Septembre 2019',
           technologies: ['Symfony', 'jQuery'],
           role: 'Développeur Full-stack',
@@ -229,7 +238,7 @@ export default {
           id: 5,
           title: 'Study Share',
           description: 'Création d’une plateforme permettant un accès rapide et facile à toutes les annales, cours, TD ainsi que les corrections selon les formations post BAC pour tous les étudiants de France. L’enjeu était donc de référencer les documents universitaires sur une seule et unique plateforme dans le but d’aider les étudiants à bien préparer leurs examens. Ce projet était dans le cadre de l’application du module « Méthodes Agiles » de ma deuxième année de MASTER MIAGE, c\'était l\'ocassion parfaite de m\initier au framework Angular.',
-          img: '/studyshare-project.png',
+          img: '/studyshare-project.jpg',
           date: 'Avril 2019',
           technologies: ['Angular', 'Laravel'],
           role: 'Développeur Back-end',
