@@ -5,13 +5,13 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - Killian Challeau - Développeur web',
-    title: 'Killian Challeau - Développeur web',
+    titleTemplate: '%s - Killian Challeau - Développeur web full stack sur Bordeaux',
+    title: 'Killian Challeau - Développeur web full stack sur Bordeaux',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { name: 'keywords', content: 'développeur, developer, killian, challeau, web, full, stack, kilalo, bordeaux'},
-      { hid: 'description', name: 'description', content: 'Killian Challeau, jeune développeur web de Bordeaux. Venez découvrir mon portfolio.' },
+      { name: 'keywords', content: 'développeur, developer, killian, challeau, web, full, stack, kilalo, bordeaux, back, front, end, vue, nuxt, react, laravel, javascript, php, freelance, software, mobile, native, ios, java, android, code, programming, programmation, geek, bordeaux, coding, digital, scrum, app, html, css, typescript, angular'},
+      { hid: 'description', name: 'description', content: 'Jeune développeur full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.' },
       // OPENGRAPH
       {
         hid: 'og:title',
@@ -31,12 +31,12 @@ export default {
       {
         hid: 'og:description',
         name: 'og:description',
-        content: 'Killian Challeau, jeune développeur web de Bordeaux. Venez découvrir mon portfolio.'
+        content: 'Jeune développeur full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.'
       },
       {
         hid: 'og:image',
         name: 'og:image',
-        content: this.BASE_URL + '/kilalo-project.png'
+        content: 'https://kilalo.io/kilalo-project.png'
       },
     ],
     link: [

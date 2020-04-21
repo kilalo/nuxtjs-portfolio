@@ -62,7 +62,7 @@
 							filled
 							label="Contenu de votre message"
 							auto-grow
-							:counter="400"
+							:counter="1500"
 							required
 							:error-messages="errors"
 							v-model="content" />
