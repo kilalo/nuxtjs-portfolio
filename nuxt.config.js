@@ -36,7 +36,7 @@ export default {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: 'https://kilalo.io/kilalo-project.png'
+        content: 'https://kilalo.io/kilalo-project.jpeg'
       },
     ],
     link: [
