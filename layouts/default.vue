@@ -227,9 +227,9 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.$store.dispatch('LOADER')
-    }, 500)
+    //setTimeout(() => {
+    //  this.$store.dispatch('LOADER')
+    //}, 500)
   },
   methods: {
     animate () {
