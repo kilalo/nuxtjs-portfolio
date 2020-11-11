@@ -187,6 +187,17 @@ export default {
       current: {},
       projects: [
         {
+          id: 6,
+          title: 'Creuch',
+          description: 'CREUCH c\'est une plateforme de vente en circuit court pour les artisans et les producteurs. Le référent en local anime sa plateforme, trouve, aide les fournisseurs et propose ses ventes. Le consommateur achète en ligne et vient chercher dans un point relai.\n Puisque j\'étais le seul développeur sur ce projet, j\'étais en charge de la conception du sytème d\'information, du développement du site ainsi que de son déploiement. Il est à noter également que j\'ai pu configurer l\'application pour qu\'elle soit compatible avec Mangopay, celèbre moyen de paiement électronique luxembourgeois. La V1 de la plateforme était fonctionnelle en environ 2 mois de travail. ',
+          img: '/creuch-project.jpg',
+          date: 'Juin 2020',
+          technologies: ['Laravel','Vue', 'Mangopay'],
+          role: 'Lead Développeur',
+          link: 'https://creuch.fr',
+          prod: true
+        },
+        {
           id: 1,
           title: 'Portfolio',
           description: 'Création d’un site Portfolio permettant de mettre en avant mes expériences et projets en tant que développeur. Ce projet est aussi l\'occasion de faire le point sur l\'ensemble des compétences que j\'ai pu acquérir et ainsi décider ce vers quoi je souhaite m\'orienter pour la suite de ma carrière professionnelle',
