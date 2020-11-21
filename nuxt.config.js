@@ -1,6 +1,8 @@
 import colors from 'vuetify/es5/util/colors'
+
 export default {
   mode: 'universal',
+  url: 'https://kilalo.io',
   /*
   ** Headers of the page
   */
@@ -68,7 +70,37 @@ export default {
   */
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/sitemap'
   ],
+  sitemap: {
+    path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
+    hostname: process.env.WEBSITE_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
+    cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
+    gzip: true,
+    generate: true, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
+    routes: [
+      { 
+        url: '/',
+        priority: 1,
+      },
+      { 
+        url: '/contact',
+        priority: 0.7,
+      },
+      { 
+        url: '/projects',
+        priority: 0.5,
+      },
+      { 
+        url: '/skills',
+        priority: 0.5,
+      },
+      { 
+        url: '/resume',
+        priority: 0.5,
+      }
+    ]
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
