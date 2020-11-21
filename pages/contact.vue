@@ -125,6 +125,16 @@ export default {
 		ValidationProvider,
 		ValidationObserver,
 	},
+	head: {
+		title: "Contact",
+		meta: [
+		{
+			hid: 'description',
+			name: 'description',
+			content: "En tant que freelance, je suis ouvert à tous types de propositions professionnelles. Contactez moi avec ce formulaire de contact ou à killian.challeau@hotmail.fr"
+		}
+		],
+	},
 	data () {
 		return {
 			name: '',

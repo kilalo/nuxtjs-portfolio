@@ -25,11 +25,16 @@
 <script>
 
 export default {
-   head () {
-    return {
-      title: 'Compétences',
-    }
-  },
+	head: {
+		title: "Compétences",
+		meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: "Illustration des compétences que j'ai pu acquérir au cours de mon expérience en tant que développeur."
+      }
+		],
+	},
 	data () {
     return {
 	  words: [

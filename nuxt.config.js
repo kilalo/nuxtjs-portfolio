@@ -5,7 +5,6 @@ export default {
   ** Headers of the page
   */
   head: {
-    titleTemplate: '%s - Killian Challeau - Développeur web full stack sur Bordeaux',
     title: 'Killian Challeau - Développeur web full stack sur Bordeaux',
     meta: [
       { charset: 'utf-8' },

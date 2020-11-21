@@ -48,11 +48,16 @@
 <script>
 
 export default {
-  head () {
-    return {
-      title: 'CV',
-    }
-  },
+	head: {
+		title: "CV",
+		meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: "Consultez mon CV en ligne ou au format PDF."
+      }
+		],
+	},
 	data () {
 		return {}
 	},

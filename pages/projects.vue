@@ -176,11 +176,16 @@
 </template>
 <script>
 export default {
-   head () {
-    return {
-      title: 'Projets',
-    }
-  },
+  head: {
+		title: "Projets",
+		meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: "Liste non exhaustive des projets que j'ai pu réaliser au cours de ma carrière en tant que développeur."
+      }
+		],
+	},
 	data () {
     return {
       modal: false,
