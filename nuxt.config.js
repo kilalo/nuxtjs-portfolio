@@ -17,7 +17,7 @@ export default {
       {
         hid: 'og:title',
         name: 'og:title',
-        content: 'Killian Challeau - Développeur web'
+        content: 'Killian Challeau - Développeur Web Freelance'
       },
       {
         hid: 'og:type',
