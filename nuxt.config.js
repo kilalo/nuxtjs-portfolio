@@ -73,11 +73,10 @@ export default {
     '@nuxtjs/sitemap'
   ],
   sitemap: {
+    hostname: 'https://kilalo.io',
     path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
-    hostname: process.env.WEBSITE_URL, // L'adresse de votre site, que vous pouvez placer comme ici dans une variable d'environnement.
     cacheTime: 1000 * 60 * 15, // La durée avant que le sitemap soit regénéré. Ici 15mn.
     gzip: true,
-    generate: true, // Génère une version statique du sitemap quand activé. À utiliser avec nuxt generate.
     routes: [
       { 
         url: '/',
