@@ -7,12 +7,12 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: 'Killian Challeau - Développeur web full stack sur Bordeaux',
+    title: 'Killian Challeau - Développeur Web Freelance',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { name: 'keywords', content: 'développeur, developer, killian, challeau, web, full, stack, kilalo, bordeaux, back, front, end, vue, nuxt, react, laravel, javascript, php, freelance, software, mobile, native, ios, java, android, code, programming, programmation, geek, bordeaux, coding, digital, scrum, app, html, css, typescript, angular'},
-      { hid: 'description', name: 'description', content: 'Jeune développeur full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.' },
+      { hid: 'description', name: 'description', content: 'Jeune développeur web full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.' },
       // OPENGRAPH
       {
         hid: 'og:title',
