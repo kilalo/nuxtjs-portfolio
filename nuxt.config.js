@@ -73,6 +73,14 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-compress'
   ],
+  "nuxt-compress": {
+    gzip: {
+      cache: true
+    },
+    brotli: {
+      threshold: 10240
+    }
+  },
   sitemap: {
     hostname: 'https://kilalo.io',
     path: '/sitemap.xml', // L'emplacement de votre fichier sitemap.
