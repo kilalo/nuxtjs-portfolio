@@ -73,6 +73,9 @@ export default {
     '@nuxtjs/sitemap',
     'nuxt-compress'
   ],
+  robots: {
+    Sitemap: `${process.env.WEBSITE_URL}/sitemap.xml`
+  },
   "nuxt-compress": {
     gzip: {
       cache: true
