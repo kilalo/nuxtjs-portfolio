@@ -34,8 +34,7 @@
 export default {
    head () {
     return {
-      title: 'Accueil', 
-     
+      title: 'Killian Challeau - Développeur Web Freelance', 
     }
   },
   data () {

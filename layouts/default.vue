@@ -184,6 +184,16 @@ export default {
   components: {
     Loader,
   },
+  head() {
+    return {
+      link: [
+        {
+          rel: 'canonical',
+          href: 'https://kilalo.io' + this.$route.path
+        }
+      ]
+    }
+  },
   data () {
     return {
       clipped: false,
