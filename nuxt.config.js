@@ -93,22 +93,6 @@ export default {
       { 
         url: '/',
         priority: 1,
-      },
-      { 
-        url: '/contact',
-        priority: 0.7,
-      },
-      { 
-        url: '/projects',
-        priority: 0.5,
-      },
-      { 
-        url: '/skills',
-        priority: 0.5,
-      },
-      { 
-        url: '/resume',
-        priority: 0.5,
       }
     ]
   },

@@ -27,15 +27,38 @@
       </h1>
       <span class="title-mobile-second">développeur web full stack.</span>
     </div>
+    <section id="projects">
+      <Projects />
+    </section>
+    <section id="skills">
+      <Skills />
+    </section>
+    <section id="resume">
+      <Resume />
+    </section>
+    <section id="contact">
+      <Contact />
+    </section>
   </v-layout>
 </template>
 
 <script>
+import Projects from '~/components/Projects.vue'
+import Skills from '~/components/Skills.vue'
+import Resume from '~/components/Resume.vue'
+import Contact from '~/components/Contact.vue'
+
 export default {
    head () {
     return {
       title: 'Killian Challeau - Développeur Web Freelance', 
     }
+  },
+  components: {
+    Projects,
+    Skills,
+    Resume,
+    Contact
   },
   data () {
     return {

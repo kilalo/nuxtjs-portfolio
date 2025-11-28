@@ -60,8 +60,7 @@
           active-class="active-btn"
           :ripple="false"
           :class="path == '/' ? 'active-btn' : null"
-          :to="{ path: '/' }"
-          replace
+          href="#"
           @click.stop="animate()">
             <v-icon
               class="mb-1 mr-2">
@@ -75,9 +74,7 @@
         <v-btn
           :ripple="false"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
-          :class="path == '/projects' ? 'active-btn' : null"
-          :to="{ path: '/projects' }"
-          replace
+          href="#projects"
           @click.stop="animate()">
             <v-icon
               class="mb-1 mr-2">
@@ -90,9 +87,7 @@
         </v-btn>
         <v-btn
           :ripple="false"
-          :to="{ path: '/skills' }"
-          replace
-          :class="path == '/skills' ? 'active-btn' : null"
+          href="#skills"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
             <v-icon
@@ -106,9 +101,7 @@
         </v-btn>
         <v-btn
           :ripple="false"
-          :to="{ path: '/resume' }"
-          replace
-          :class="path == '/resume' ? 'active-btn' : null"
+          href="#resume"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
             <v-icon
@@ -122,9 +115,7 @@
         </v-btn>
         <v-btn          
           :ripple="false"
-          :to="{ path: '/contact' }"
-          replace
-          :class="path == '/contact' ? 'active-btn' : null"
+          href="#contact"
           class="mt-2 d-none no-box-shadow d-sm-block align-self-center"
           @click.stop="animate()">
             <v-icon
@@ -202,27 +193,27 @@ export default {
         {
           icon: 'mdi-home-outline',
           title: 'Accueil',
-          to: '/'
+          to: '#'
         },
         {
           icon: 'mdi-lightbulb-on-outline',
           title: 'Projets',
-          to: '/projects'
+          to: '#projects'
         },
         {
           icon: 'mdi-xml',
           title: 'Compétences',
-          to: '/skills'
+          to: '#skills'
         },
          {
           icon: 'mdi-file-outline',
           title: 'Curriculum vitae',
-          to: '/resume'
+          to: '#resume'
         },
         {
           icon: 'mdi-email-outline',
           title: 'Contact',
-          to: '/contact'
+          to: '#contact'
         },
       ],
       title: 'Kilalo.io'

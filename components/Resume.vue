@@ -1,5 +1,8 @@
 <template>
   <v-row class="h100">
+     <h2 class="w100 d-inline-block my-10 font-style txt-color text-center">
+        Curriculum vitae
+      </h2>
     <v-col cols="12" md="6" class="ma">
       <v-btn text class="d-block big-btn my-10 ma" :ripple="false">
         <a href="/CV_KC_2022.pdf" target="_blank">
@@ -20,16 +23,6 @@
 </template>
 <script>
 export default {
-  head: {
-    title: "CV",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content: "Consultez mon CV en ligne ou au format PDF.",
-      },
-    ],
-  },
   data() {
     return {};
   },

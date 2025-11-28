@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <h2 class="text-center">Projets</h2>
     <div class="grid h100 mb-5">
       <div
         v-for="project in projects"
@@ -134,17 +135,6 @@
 </template>
 <script>
 export default {
-  head: {
-    title: "Projets",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Liste non exhaustive des projets que j'ai pu réaliser au cours de ma carrière en tant que développeur.",
-      },
-    ],
-  },
   data() {
     return {
       modal: false,

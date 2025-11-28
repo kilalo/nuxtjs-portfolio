@@ -22,17 +22,6 @@
 </template>
 <script>
 export default {
-  head: {
-    title: "Compétences",
-    meta: [
-      {
-        hid: "description",
-        name: "description",
-        content:
-          "Illustration des compétences que j'ai pu acquérir au cours de mon expérience en tant que développeur.",
-      },
-    ],
-  },
   data() {
     return {
       words: [
