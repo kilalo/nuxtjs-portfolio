@@ -569,8 +569,67 @@ const timeline = computed<TimelineItem[]>(() => [
   },
 ]);
 
+const seoTitle = computed(() =>
+  locale.value === "fr"
+    ? "Killian Challeau — Développeur Full Stack Freelance | Bordeaux"
+    : "Killian Challeau — Freelance Full Stack Developer | Bordeaux"
+);
+
+const seoDescription = computed(() =>
+  locale.value === "fr"
+    ? "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux."
+    : "Freelance full stack web developer with 10+ years of experience. Specialized in Vue/Nuxt, React, Laravel, TypeScript, DevOps and agentic AI systems. Available for your projects from Bordeaux."
+);
+
+useSeoMeta({
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
+  ogImage: "https://kilalo.io/kilalo-project.jpg",
+  ogUrl: "https://kilalo.io/",
+  ogType: "website",
+  ogSiteName: "Killian Challeau",
+  twitterCard: "summary_large_image",
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
+  twitterImage: "https://kilalo.io/kilalo-project.jpg",
+  robots: "index, follow",
+});
+
 useHead({
-  title: "Killian Challeau - Développeur Web Freelance",
+  htmlAttrs: { lang: locale },
+  link: [{ rel: "canonical", href: "https://kilalo.io/" }],
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Person",
+        name: "Killian Challeau",
+        url: "https://kilalo.io",
+        image: "https://kilalo.io/kilalo-project.jpg",
+        jobTitle: "Développeur Full Stack Freelance",
+        description:
+          "Développeur web full stack freelance avec 10+ ans d'expérience, spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique.",
+        address: { "@type": "PostalAddress", addressLocality: "Bordeaux", addressCountry: "FR" },
+        sameAs: [
+          "https://linkedin.com/in/killian-challeau",
+          "https://github.com/kilalo",
+        ],
+        knowsAbout: ["Vue.js", "Nuxt.js", "React", "Laravel", "TypeScript", "Node.js", "Docker", "CI/CD", "LLM", "RAG", "Agentic AI"],
+      }),
+    },
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Killian Challeau",
+        url: "https://kilalo.io",
+      }),
+    },
+  ],
 });
 
 // Hero

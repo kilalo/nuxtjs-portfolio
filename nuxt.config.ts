@@ -34,37 +34,52 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Killian Challeau - Développeur Web Freelance",
+      title: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "keywords",
           content:
-            "développeur, developer, killian, challeau, web, full, stack, kilalo, bordeaux, back, front, end, vue, nuxt, react, laravel, javascript, php, freelance, software, mobile, native, ios, java, android, code, programming, programmation, geek, bordeaux, coding, digital, scrum, app, html, css, typescript, angular",
+            "killian challeau, développeur full stack, freelance, bordeaux, vue, nuxt, react, laravel, typescript, nodejs, devops, docker, ci/cd, ia agentique, llm, rag, lead tech, web developer, kilalo",
         },
         {
-          hid: "description",
           name: "description",
           content:
-            "Jeune développeur web full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.",
+            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux.",
         },
+        { name: "author", content: "Killian Challeau" },
+        { name: "robots", content: "index, follow" },
         {
-          hid: "og:title",
           property: "og:title",
-          content: "Killian Challeau - Développeur Web Freelance",
+          content: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
         },
-        { hid: "og:type", property: "og:type", content: "website" },
-        { hid: "og:url", property: "og:url", content: "https://kilalo.io/" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://kilalo.io/" },
+        { property: "og:site_name", content: "Killian Challeau" },
         {
-          hid: "og:description",
           property: "og:description",
           content:
-            "Jeune développeur full stack passionné de nouvelles technologies et plus particulièrement du monde du web. Ouvert aux opportunités en tant que freelance.",
+            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux.",
         },
         {
-          hid: "og:image",
           property: "og:image",
+          content: "https://kilalo.io/kilalo-project.jpg",
+        },
+        { property: "og:locale", content: "fr_FR" },
+        { property: "og:locale:alternate", content: "en_GB" },
+        { name: "twitter:card", content: "summary_large_image" },
+        {
+          name: "twitter:title",
+          content: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique.",
+        },
+        {
+          name: "twitter:image",
           content: "https://kilalo.io/kilalo-project.jpg",
         },
       ],
