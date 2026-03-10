@@ -30,7 +30,7 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
 
-  css: ["~/assets/css/fonts.css"],
+  css: ["~/assets/css/fonts.css", "~/assets/css/theme.css"],
 
   app: {
     head: {

@@ -2,6 +2,7 @@
   "nav": {
     "home": "Accueil",
     "projects": "Projets",
+    "experience": "Parcours",
     "skills": "Compétences",
     "resume": "CV",
     "contact": "Contact",
@@ -23,13 +24,13 @@
     "private": "Privé",
     "circularplace": {
       "title": "CircularPlace",
-      "role": "Lead Tech - Développeur Full Stack",
+      "role": "Lead Tech",
       "date": "Avr. 2024 - Aujourd'hui",
       "description": "Startup Environment — intégré au sein d'une petite équipe, j'ai mis en place des pipelines CI/CD (GitHub Actions, Docker Swarm), conçu des APIs et interfaces web, intégré Stripe pour les paiements et Zitadel pour l'authentification multi-tenant. Supervision de l'équipe et participation aux sprints."
     },
     "capency": {
       "title": "Capency",
-      "role": "Lead Tech - Développeur Full Stack",
+      "role": "Lead Tech",
       "date": "Oct. 2022 - Déc. 2023",
       "description": "Management d'une équipe de 4 à 6 développeurs en Agile. Intégration des APIs Google Wallet et Apple Wallet pour dématérialiser les cartes de fidélité, développement d'outils web, pipelines CI/CD, gestion serveurs et synchronisation avec Salesforce."
     },
@@ -69,6 +70,16 @@
       "date": "Juillet 2019 - Août 2020",
       "description": "Plateforme e-commerce de vente d'équipement sportif."
     }
+  },
+  "experience": {
+    "title": "Parcours",
+    "current": "En poste",
+    "circularplace": "Startup Environment — mise en place de pipelines CI/CD (GitHub Actions, Docker Swarm), conception d'APIs et interfaces web, intégration Stripe et Zitadel (auth multi-tenant). Code reviews et supervision de l'équipe de développement.",
+    "capency": "Management d'une équipe de 4 à 6 développeurs en Agile. Intégration des APIs Google Wallet et Apple Wallet pour dématérialiser les cartes de fidélité, outils web, CI/CD, gestion serveurs et synchronisation Salesforce.",
+    "tractr": "Conception et déploiement de produits digitaux pour startups et entreprises. Stack TypeScript Angular/NestJS, monorepo Nx, CI/CD AWS. Contribution au template engine CRUD Hapify.io.",
+    "hmonster": "Développement d'un CMS SaaS orienté cours en ligne (B2B/B2C). Migration Laravel 8, refonte de deux sites de cours vidéo, intégration de modules et passerelle de paiement Stripe.",
+    "monkeymonk": "Stage et alternance dans le cadre du Master MIAGE, puis CDI dans une startup Agile. Développement d'APIs RESTful, intranet, administration système et réseau sur le projet sports-village.com.",
+    "early": "Premières expériences en entreprise : développeur .NET & QA chez CGI sur le SI nucléaire d'EDF (2016), analyste données chez BPACA (2017), développeur Symfony chez APESA (2015)."
   },
   "skills": {
     "title": "Compétences",

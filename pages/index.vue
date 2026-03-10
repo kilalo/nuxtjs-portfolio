@@ -2,14 +2,6 @@
   <div class="scroll-smooth">
     <!-- Section Accueil -->
     <section id="home" class="hero">
-      <!-- Background orbs -->
-      <div class="hero-orb hero-orb--1"></div>
-      <div class="hero-orb hero-orb--2"></div>
-      <div class="hero-orb hero-orb--3"></div>
-
-      <!-- Grid overlay -->
-      <div class="hero-grid"></div>
-
       <!-- Content -->
       <div
         class="hero-content"
@@ -198,18 +190,75 @@
       </Transition>
     </section>
 
-    <!-- Section Compétences -->
-    <section id="skills" class="s-section s-section--alt">
+    <!-- Section Expérience -->
+    <section id="experience" class="s-section s-section--alt">
       <div class="container mx-auto px-4">
         <div class="s-header scroll-reveal">
-          <span class="s-label">02 // {{ t("skills.title") }}</span>
+          <span class="s-label">02 // {{ t("experience.title") }}</span>
+          <h2 class="s-title">{{ t("experience.title") }}</h2>
+        </div>
+
+        <div class="timeline">
+          <div
+            v-for="(item, index) in timeline"
+            :key="item.company"
+            class="tl-item scroll-reveal"
+            :class="index % 2 === 0 ? 'tl-left' : 'tl-right'"
+            :style="{ '--reveal-delay': `${index * 120}ms` }"
+          >
+            <div
+              class="tl-dot"
+              :class="{ 'tl-dot--active': item.current }"
+            ></div>
+            <div class="tl-card">
+              <div class="tl-card__top">
+                <div class="tl-name-wrap">
+                  <span class="tl-company">{{ item.company }}</span>
+                  <a
+                    v-if="item.link"
+                    :href="item.link"
+                    target="_blank"
+                    class="tl-link-icon"
+                    @click.stop
+                  >
+                    <i class="fas fa-arrow-up-right-from-square"></i>
+                  </a>
+                  <span
+                    v-if="item.current"
+                    class="tl-badge tl-badge--current"
+                    >{{ t("experience.current") }}</span
+                  >
+                  <span v-if="item.type" class="tl-badge tl-badge--type">{{
+                    item.type
+                  }}</span>
+                </div>
+                <span class="tl-period">{{ item.period }}</span>
+              </div>
+              <p class="tl-role">{{ item.role }}</p>
+              <p class="tl-desc">{{ item.desc }}</p>
+              <div class="tl-tags">
+                <span v-for="tag in item.tags" :key="tag" class="tech-badge">{{
+                  tag
+                }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="skills" class="s-section">
+      <div class="container mx-auto px-4">
+        <div class="s-header scroll-reveal">
+          <span class="s-label">03 // {{ t("skills.title") }}</span>
           <h2 class="s-title">{{ t("skills.title") }}</h2>
         </div>
 
         <!-- Stats -->
         <div class="stats-row">
           <div class="stat scroll-reveal" style="--reveal-delay: 0ms">
-            <span class="stat__value">10+</span>
+            <span class="stat__value">{{ animatedYears }}+</span>
             <span class="stat__label">{{ t("skills.stats.years") }}</span>
           </div>
           <div
@@ -217,7 +266,7 @@
             style="--reveal-delay: 100ms"
           ></div>
           <div class="stat scroll-reveal" style="--reveal-delay: 150ms">
-            <span class="stat__value">50+</span>
+            <span class="stat__value">{{ animatedProjects }}+</span>
             <span class="stat__label">{{ t("skills.stats.projects") }}</span>
           </div>
           <div
@@ -225,7 +274,7 @@
             style="--reveal-delay: 250ms"
           ></div>
           <div class="stat scroll-reveal" style="--reveal-delay: 300ms">
-            <span class="stat__value">20+</span>
+            <span class="stat__value">{{ animatedTechs }}+</span>
             <span class="stat__label">{{ t("skills.stats.techs") }}</span>
           </div>
         </div>
@@ -266,7 +315,7 @@
     <section id="resume" class="s-section">
       <div class="container mx-auto px-4">
         <div class="s-header scroll-reveal">
-          <span class="s-label">03 // {{ t("resume.title") }}</span>
+          <span class="s-label">04 // {{ t("resume.title") }}</span>
           <h2 class="s-title">{{ t("resume.title") }}</h2>
         </div>
 
@@ -309,7 +358,7 @@
     <section id="contact" class="s-section s-section--alt">
       <div class="container mx-auto px-4">
         <div class="s-header scroll-reveal">
-          <span class="s-label">04 // {{ t("contact.title") }}</span>
+          <span class="s-label">05 // {{ t("contact.title") }}</span>
           <h2 class="s-title">{{ t("contact.title") }}</h2>
         </div>
 
@@ -416,6 +465,109 @@ interface ContactForm {
 
 const { t, locale } = useI18n();
 const { projects } = useProjects();
+
+// Animated counters
+const animatedYears = ref(0);
+const animatedProjects = ref(0);
+const animatedTechs = ref(0);
+
+const animateCounter = (target: Ref<number>, to: number, duration = 1400) => {
+  const start = Date.now();
+  const tick = () => {
+    const elapsed = Date.now() - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    target.value = Math.round(eased * to);
+    if (progress < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+
+// Timeline
+interface TimelineItem {
+  period: string;
+  company: string;
+  type: string;
+  role: string;
+  desc: string;
+  tags: string[];
+  link?: string;
+  current: boolean;
+}
+
+const timeline = computed<TimelineItem[]>(() => [
+  {
+    period:
+      locale.value === "fr" ? "Avr. 2024 — Présent" : "Apr. 2024 — Present",
+    company: "CircularPlace",
+    type: "Freelance",
+    role: "Lead Tech · Full Stack Dev",
+    desc: t("experience.circularplace"),
+    tags: ["NestJS", "Vue.js", "Docker", "Stripe", "Zitadel", "GitHub Actions"],
+    link: "https://circularplace.fr",
+    current: true,
+  },
+  {
+    period:
+      locale.value === "fr" ? "Oct. 2022 — Déc. 2023" : "Oct. 2022 — Dec. 2023",
+    company: "CAPENCY",
+    type: "Freelance",
+    role: "Lead Tech · Full Stack Dev",
+    desc: t("experience.capency"),
+    tags: [
+      "Angular",
+      "MongoDB",
+      "Salesforce",
+      "Google Wallet",
+      "GitHub Actions",
+    ],
+    current: false,
+  },
+  {
+    period:
+      locale.value === "fr"
+        ? "Sept. 2021 — Juil. 2022"
+        : "Sep. 2021 — Jul. 2022",
+    company: "TRACTR",
+    type: "CDI",
+    role: "Full Stack Developer",
+    desc: t("experience.tractr"),
+    tags: ["NestJS", "Angular", "AWS", "Nx", "TypeScript"],
+    link: "https://tractr.net",
+    current: false,
+  },
+  {
+    period:
+      locale.value === "fr" ? "Nov. 2020 — Juin 2021" : "Nov. 2020 — Jun. 2021",
+    company: "Hmonster Sàrl",
+    type: "Freelance",
+    role: "Full Stack Developer",
+    desc: t("experience.hmonster"),
+    tags: ["Laravel", "Docker", "Bootstrap", "Stripe", "PHP"],
+    link: "https://www.hguitare.com/",
+    current: false,
+  },
+  {
+    period:
+      locale.value === "fr" ? "Mai 2018 — Sept. 2020" : "May 2018 — Sep. 2020",
+    company: "Monkey Monk",
+    type: "CDI",
+    role: "Full Stack Developer",
+    desc: t("experience.monkeymonk"),
+    tags: ["Symfony", "Vue.js", "Docker", "REST", "Agile"],
+    link: "https://sports-village.com",
+    current: false,
+  },
+  {
+    period: "2015 — 2017",
+    company: locale.value === "fr" ? "Débuts professionnels" : "Early Career",
+    type: locale.value === "fr" ? "Stage / Alternance" : "Internship",
+    role: "CGI · BPACA · APESA",
+    desc: t("experience.early"),
+    tags: [".NET", "Symfony", "PHP", "Visual Basic", "SQL"],
+    current: false,
+  },
+]);
 
 useHead({
   title: "Killian Challeau - Développeur Web Freelance",
@@ -570,6 +722,23 @@ onMounted(async () => {
     setTimeout(() => runTerminal(), 300);
     setTimeout(() => runTypewriter(), 900);
 
+    // Animated counters
+    const statsEl = document.querySelector(".stats-row");
+    if (statsEl) {
+      const counterObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            animateCounter(animatedYears, 10);
+            animateCounter(animatedProjects, 30);
+            animateCounter(animatedTechs, 20);
+            counterObserver.disconnect();
+          }
+        },
+        { threshold: 0.5 },
+      );
+      counterObserver.observe(statsEl);
+    }
+
     // Scroll reveal
     const revealObserver = new IntersectionObserver(
       (entries) => {
@@ -601,94 +770,7 @@ onMounted(async () => {
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: #0f172a;
-}
-
-/* Orbs */
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  pointer-events: none;
-}
-.hero-orb--1 {
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(
-    circle,
-    rgba(20, 184, 166, 0.18) 0%,
-    transparent 70%
-  );
-  top: -150px;
-  left: -100px;
-  animation: orbFloat1 12s ease-in-out infinite;
-}
-.hero-orb--2 {
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(
-    circle,
-    rgba(99, 102, 241, 0.14) 0%,
-    transparent 70%
-  );
-  bottom: -100px;
-  right: -80px;
-  animation: orbFloat2 15s ease-in-out infinite;
-}
-.hero-orb--3 {
-  width: 350px;
-  height: 350px;
-  background: radial-gradient(
-    circle,
-    rgba(20, 184, 166, 0.09) 0%,
-    transparent 70%
-  );
-  top: 40%;
-  left: 55%;
-  animation: orbFloat3 18s ease-in-out infinite;
-}
-
-@keyframes orbFloat1 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(60px, 80px) scale(1.1);
-  }
-}
-@keyframes orbFloat2 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-50px, -60px) scale(1.08);
-  }
-}
-@keyframes orbFloat3 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(30px, -40px) scale(0.95);
-  }
-}
-
-/* Grid */
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(20, 184, 166, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(20, 184, 166, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  mask-image: radial-gradient(
-    ellipse 80% 80% at 50% 50%,
-    black 30%,
-    transparent 100%
-  );
+  background: transparent;
 }
 
 /* Content */
@@ -896,8 +978,8 @@ onMounted(async () => {
 .hero-scroll {
   position: absolute;
   bottom: 28px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -959,10 +1041,10 @@ onMounted(async () => {
 .s-section {
   padding: 7rem 0;
   position: relative;
-  background: #0f172a;
+  background: transparent;
 }
 .s-section--alt {
-  background: #0d1526;
+  background: transparent;
 }
 
 .s-header {
@@ -1482,6 +1564,203 @@ onMounted(async () => {
 .notif-leave-to {
   opacity: 0;
   transform: translateY(10px) scale(0.97);
+}
+
+/* ===================== TIMELINE ===================== */
+.timeline {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(20, 184, 166, 0.25) 8%,
+    rgba(20, 184, 166, 0.25) 92%,
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+.tl-item {
+  position: relative;
+  width: calc(50% - 2.5rem);
+  margin-bottom: 2.5rem;
+}
+
+.tl-left {
+  margin-right: auto;
+  padding-right: 0;
+}
+
+.tl-right {
+  margin-left: auto;
+  padding-left: 0;
+}
+
+.tl-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background: #0f172a;
+  border: 2px solid rgba(20, 184, 166, 0.4);
+  border-radius: 50%;
+  top: 1.4rem;
+  z-index: 2;
+}
+
+.tl-left .tl-dot {
+  right: -2.95rem;
+}
+
+.tl-right .tl-dot {
+  left: -2.95rem;
+}
+
+.tl-dot--active {
+  border-color: #14b8a6;
+  background: #14b8a6;
+  box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+  animation: tlPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes tlPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.12);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(20, 184, 166, 0.04);
+  }
+}
+
+.tl-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.tl-card:hover {
+  border-color: rgba(20, 184, 166, 0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+}
+
+.tl-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tl-name-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tl-company {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.tl-link-icon {
+  font-size: 9px;
+  color: #334155;
+  transition: color 0.2s ease;
+  margin-left: 2px;
+}
+
+.tl-card:hover .tl-link-icon {
+  color: #14b8a6;
+}
+
+.tl-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.tl-badge--current {
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.tl-badge--type {
+  color: #64748b;
+  background: rgba(100, 116, 139, 0.08);
+  border: 1px solid rgba(100, 116, 139, 0.15);
+}
+
+.tl-period {
+  font-size: 11px;
+  color: #475569;
+  white-space: nowrap;
+  padding-top: 3px;
+}
+
+.tl-role {
+  font-size: 12px;
+  font-weight: 600;
+  color: #14b8a6;
+  margin-bottom: 0.6rem;
+}
+
+.tl-desc {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.tl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 14px;
+  }
+
+  .tl-item {
+    width: 100%;
+    padding-left: 2.5rem;
+  }
+
+  .tl-left,
+  .tl-right {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .tl-left .tl-dot,
+  .tl-right .tl-dot {
+    left: 9px;
+    right: auto;
+  }
 }
 
 /* ===================== AI CARD ===================== */
