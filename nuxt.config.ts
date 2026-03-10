@@ -1,5 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  nitro: {
+    externals: {
+      inline: ["nodemailer"],
+    },
+  },
+
+  runtimeConfig: {
+    smtpHost: "",
+    smtpPort: "587",
+    smtpSecure: "false",
+    smtpUser: "",
+    smtpPass: "",
+    contactEmail: "",
+  },
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
 

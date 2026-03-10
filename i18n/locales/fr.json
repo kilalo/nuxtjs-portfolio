@@ -8,13 +8,10 @@
     "linkedin": "LinkedIn"
   },
   "home": {
-    "title": "Killian Challeau",
-    "subtitle": "Full Stack Engineer",
-    "hello": {
-      "js": "console.log(\"Hello World\")",
-      "php": "echo(\"Hello World\")",
-      "java": "System.out.println(\"Hello World\")",
-      "cpp": "std::cout << \"Hello World\""
+    "available": "Disponible · Freelance",
+    "cta": {
+      "projects": "Voir mes projets",
+      "contact": "Me contacter"
     }
   },
   "projects": {
@@ -31,7 +28,7 @@
       "description": "Startup Environment — intégré au sein d'une petite équipe, j'ai mis en place des pipelines CI/CD (GitHub Actions, Docker Swarm), conçu des APIs et interfaces web, intégré Stripe pour les paiements et Zitadel pour l'authentification multi-tenant. Supervision de l'équipe et participation aux sprints."
     },
     "capency": {
-      "title": "CAPENCY",
+      "title": "Capency",
       "role": "Lead Tech - Développeur Full Stack",
       "date": "Oct. 2022 - Déc. 2023",
       "description": "Management d'une équipe de 4 à 6 développeurs en Agile. Intégration des APIs Google Wallet et Apple Wallet pour dématérialiser les cartes de fidélité, développement d'outils web, pipelines CI/CD, gestion serveurs et synchronisation avec Salesforce."
@@ -75,6 +72,16 @@
   },
   "skills": {
     "title": "Compétences",
+    "stats": {
+      "years": "ans d'expérience",
+      "projects": "projets livrés",
+      "techs": "technologies"
+    },
+    "ai": {
+      "label": "Spécialité · IA & Agentique",
+      "title": "Développement IA & Systèmes Agentiques",
+      "description": "Je conçois et intègre des systèmes basés sur des LLMs : agents autonomes, pipelines RAG, intégration Claude API et MCP. Je construis des outils qui augmentent la productivité des développeurs et automatisent des workflows complexes grâce à l'IA."
+    },
     "description": "Fort de plus de 10 ans d'expérience dans le développement web, j'ai maîtrisé un stack technologique complet allant des frameworks frontend modernes aux solutions backend robustes, en passant par les pratiques DevOps. Des MVP de startups aux applications d'envergure, j'apporte expertise technique et passion pour créer des solutions élégantes et performantes qui ont un véritable impact."
   },
   "resume": {
@@ -91,6 +98,7 @@
       "subject": "Sujet",
       "message": "Votre message",
       "send": "Envoyer",
+      "sending": "Envoi en cours...",
       "success": "Message envoyé avec succès !",
       "error": "Une erreur est survenue"
     }
