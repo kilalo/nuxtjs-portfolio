@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "skills": "Skills",
+    "resume": "Resume",
+    "contact": "Contact",
+    "linkedin": "LinkedIn"
+  },
+  "home": {
+    "title": "Killian Challeau",
+    "subtitle": "Full Stack Engineer",
+    "hello": {
+      "js": "console.log(\"Hello World\")",
+      "php": "echo(\"Hello World\")",
+      "java": "System.out.println(\"Hello World\")",
+      "cpp": "std::cout << \"Hello World\""
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "viewMore": "View more",
+    "close": "Close",
+    "access": "Visit",
+    "notDeployed": "Not deployed",
+    "private": "Private",
+    "flit": {
+      "title": "Flit Sport",
+      "role": "Full-Stack Developer",
+      "date": "October 2021 - June 2022",
+      "description": "Built from scratch a mobile-first web application generating intelligent training plans for runners."
+    },
+    "hguitare": {
+      "title": "HGuitare",
+      "role": "Full-Stack Developer",
+      "date": "November 2020 - June 2021",
+      "description": "Led the complete redesign and refactoring of an online guitar learning platform serving thousands of active students."
+    },
+    "creuch": {
+      "title": "Creuch",
+      "role": "Lead Developer",
+      "date": "June 2020",
+      "description": "CREUCH is a short-circuit sales platform connecting artisans and producers directly with consumers."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "role": "Front-end Developer",
+      "date": "April 2020",
+      "description": "Creation of a Portfolio website showcasing my experiences and projects as a developer."
+    },
+    "movies": {
+      "title": "Movies App",
+      "role": "Front-end Developer",
+      "date": "March 2020",
+      "description": "Mobile application for searching movies and browsing new releases."
+    },
+    "sportsvillage": {
+      "title": "Sports Village",
+      "role": "Full-Stack Developer",
+      "date": "July 2019 - August 2020",
+      "description": "E-commerce platform for selling sports equipment."
+    }
+  },
+  "skills": {
+    "title": "Skills",
+    "description": "With over 10 years of experience in web development, I've mastered a comprehensive technology stack spanning modern frontend frameworks, robust backend solutions, and DevOps practices. From startup MVPs to enterprise-scale applications, I bring technical expertise and a passion for building elegant, performant solutions that make a real impact."
+  },
+  "resume": {
+    "title": "Resume",
+    "downloadPdf": "Download PDF version",
+    "viewOnline": "View online version"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "description": "Open to exciting opportunities — whether you're building the next big startup or need an experienced developer for your project. Let's discuss how we can work together to bring your vision to life.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send",
+      "success": "Message sent successfully!",
+      "error": "An error occurred"
+    }
+  }
+}
