@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "skills": "Compétences",
+    "resume": "CV",
+    "contact": "Contact",
+    "linkedin": "LinkedIn"
+  },
+  "home": {
+    "title": "Killian Challeau",
+    "subtitle": "Full Stack Engineer",
+    "hello": {
+      "js": "console.log(\"Hello World\")",
+      "php": "echo(\"Hello World\")",
+      "java": "System.out.println(\"Hello World\")",
+      "cpp": "std::cout << \"Hello World\""
+    }
+  },
+  "projects": {
+    "title": "Projets",
+    "viewMore": "Voir plus",
+    "close": "Fermer",
+    "access": "Accéder",
+    "notDeployed": "Non déployé",
+    "private": "Privé",
+    "flit": {
+      "title": "Flit Sport",
+      "role": "Développeur Full-stack",
+      "date": "Octobre 2021 - Juin 2022",
+      "description": "Développement from scratch d'une web app avec une volonté mobile first qui a pour objet de générer intelligemment des plans d'entraînement pour la course à pied."
+    },
+    "hguitare": {
+      "title": "HGuitare",
+      "role": "Développeur Full-stack",
+      "date": "Novembre 2020 - Juin 2021",
+      "description": "Refonte d'une web app dont la thématique principale est les cours de guitare en ligne."
+    },
+    "creuch": {
+      "title": "Creuch",
+      "role": "Lead Développeur",
+      "date": "Juin 2020",
+      "description": "CREUCH c'est une plateforme de vente en circuit court pour les artisans et les producteurs."
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "role": "Développeur Front-end",
+      "date": "Avril 2020",
+      "description": "Création d'un site Portfolio permettant de mettre en avant mes expériences et projets en tant que développeur."
+    },
+    "movies": {
+      "title": "Movies App",
+      "role": "Développeur Front-end",
+      "date": "Mars 2020",
+      "description": "Application mobile permettant de rechercher des films et de consulter les nouveautés."
+    },
+    "sportsvillage": {
+      "title": "Sports Village",
+      "role": "Développeur Full-stack",
+      "date": "Juillet 2019 - Août 2020",
+      "description": "Plateforme e-commerce de vente d'équipement sportif."
+    }
+  },
+  "skills": {
+    "title": "Compétences",
+    "description": "Fort de plus de 10 ans d'expérience dans le développement web, j'ai maîtrisé un stack technologique complet allant des frameworks frontend modernes aux solutions backend robustes, en passant par les pratiques DevOps. Des MVP de startups aux applications d'envergure, j'apporte expertise technique et passion pour créer des solutions élégantes et performantes qui ont un véritable impact."
+  },
+  "resume": {
+    "title": "Curriculum Vitae",
+    "downloadPdf": "Télécharger la version PDF",
+    "viewOnline": "Accéder à la version en ligne"
+  },
+  "contact": {
+    "title": "Me contacter",
+    "description": "Ouvert aux opportunités stimulantes — que vous construisiez la prochaine startup innovante ou ayez besoin d'un développeur expérimenté pour votre projet. Discutons ensemble de la façon dont nous pouvons concrétiser votre vision.",
+    "form": {
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Votre message",
+      "send": "Envoyer",
+      "success": "Message envoyé avec succès !",
+      "error": "Une erreur est survenue"
+    }
+  }
+}

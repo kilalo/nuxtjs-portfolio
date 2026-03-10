@@ -1,0 +1,9 @@
+services:
+  portfolio-prod:
+    image: ghcr.io/killian-challeau/nuxtjs-portfolio:latest
+    container_name: nuxt-portfolio-prod
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
