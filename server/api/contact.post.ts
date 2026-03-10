@@ -10,6 +10,10 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig();
 
+  if (!config.smtpHost || !config.smtpUser || !config.smtpPass) {
+    throw createError({ statusCode: 500, statusMessage: "SMTP not configured" });
+  }
+
   const transporter = nodemailer.createTransport({
     host: config.smtpHost,
     port: Number(config.smtpPort) || 587,
@@ -20,14 +24,18 @@ export default defineEventHandler(async (event) => {
     },
   });
 
-  await transporter.sendMail({
-    from: `"${name}" <${config.smtpUser}>`,
-    replyTo: email,
-    to: config.contactEmail,
-    subject: `[Portfolio] ${subject}`,
-    text: `De : ${name} (${email})\n\n${content}`,
-    html: `<p><strong>De :</strong> ${name} (<a href="mailto:${email}">${email}</a>)</p><p>${content.replace(/\n/g, "<br>")}</p>`,
-  });
+  try {
+    await transporter.sendMail({
+      from: `"${name}" <${config.smtpUser}>`,
+      replyTo: email,
+      to: config.contactEmail,
+      subject: `[Portfolio] ${subject}`,
+      text: `De : ${name} (${email})\n\n${content}`,
+      html: `<p><strong>De :</strong> ${name} (<a href="mailto:${email}">${email}</a>)</p><p>${content.replace(/\n/g, "<br>")}</p>`,
+    });
+  } catch (err: any) {
+    throw createError({ statusCode: 500, statusMessage: err?.message ?? "Failed to send email" });
+  }
 
   return { success: true };
 });
