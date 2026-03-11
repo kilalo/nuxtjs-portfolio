@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   nitro: {
     externals: {
-      inline: ["nodemailer"],
+      external: ["nodemailer"],
     },
   },
 
