@@ -25,6 +25,9 @@ WORKDIR /app
 COPY --from=base /app/.output /app/.output
 COPY --from=base /app/package*.json ./
 
+# Installer uniquement les dépendances de production (nodemailer, etc.)
+RUN npm ci --omit=dev
+
 # Exposer le port
 EXPOSE 3000
 
