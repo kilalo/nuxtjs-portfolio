@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio-prod",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".output/server/index.mjs"],
+      "env": { "PORT": "3456" },
+      "port": 3456
+    }
+  ]
+}
