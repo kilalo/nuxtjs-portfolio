@@ -1,4 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+// Self-hosted Umami. The website ID is public (it ships in the page HTML),
+// and is baked in at build time because / and /en are prerendered.
+const UMAMI_HOST = "https://stats.kilalo.io";
+const UMAMI_WEBSITE_ID = "b97708e1-13a4-41fa-af38-3e8e61bc3e13";
+
 export default defineNuxtConfig({
   nitro: {
     externals: {
@@ -80,7 +86,19 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+        { rel: "preconnect", href: UMAMI_HOST },
       ],
+      script: UMAMI_WEBSITE_ID
+        ? [
+            {
+              src: `${UMAMI_HOST}/script.js`,
+              defer: true,
+              "data-website-id": UMAMI_WEBSITE_ID,
+              // Only count visits on the production domain, not localhost
+              "data-domains": "kilalo.io",
+            },
+          ]
+        : [],
     },
   },
 
