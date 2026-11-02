@@ -32,17 +32,23 @@
       <div class="container mx-auto px-4">
         <div class="flex items-center justify-between h-16">
           <!-- Logo -->
-          <button @click="scrollToSection('home')" class="nav-logo-btn">
+          <a
+            href="#home"
+            @click.prevent="scrollToSection('home')"
+            class="nav-logo-btn"
+            aria-label="Killian Challeau — Kilalo"
+          >
             <AtomLogo :size="28" color="#14b8a6" :duration="5000" />
             <span class="nav-logo-text font-signature font-bold">Kilalo</span>
-          </button>
+          </a>
 
           <!-- Menu desktop -->
           <div class="hidden md:flex space-x-1 items-center">
-            <button
+            <a
               v-for="item in items"
               :key="item.section"
-              @click="scrollToSection(item.section)"
+              :href="`#${item.section}`"
+              @click.prevent="scrollToSection(item.section)"
               :class="
                 activeSection === item.section
                   ? 'bg-teal-500/20 text-teal-500'
@@ -51,10 +57,11 @@
               class="px-3 py-2 rounded-lg transition-colors duration-200 text-sm"
             >
               {{ t(`nav.${item.key}`) }}
-            </button>
+            </a>
             <a
-              href="https://linkedin.com/in/killian-challeau"
+              href="https://www.linkedin.com/in/killian-challeau"
               target="_blank"
+              rel="noopener"
               class="px-3 py-2 rounded-lg text-gray-300 hover:text-teal-500 transition-colors duration-200 text-sm"
             >
               {{ t("nav.linkedin") }}
@@ -68,6 +75,7 @@
             @click="mobileMenu = !mobileMenu"
             class="md:hidden relative w-10 h-10 flex items-center justify-center rounded-lg hover:bg-gray-800 transition-colors"
             aria-label="Menu"
+            :aria-expanded="mobileMenu"
           >
             <span
               class="absolute block w-5 h-0.5 bg-teal-500 transition-all duration-300"
@@ -108,10 +116,11 @@
         class="fixed top-16 right-0 bottom-0 w-72 z-40 md:hidden bg-gray-900 border-l border-gray-800 flex flex-col"
       >
         <div class="flex flex-col flex-1 px-4 py-6 space-y-1 overflow-y-auto">
-          <button
+          <a
             v-for="(item, index) in items"
             :key="item.section"
-            @click="
+            :href="`#${item.section}`"
+            @click.prevent="
               scrollToSection(item.section);
               mobileMenu = false;
             "
@@ -132,20 +141,22 @@
                   : 'bg-gray-800 text-gray-400'
               "
             >
-              <i :class="item.icon"></i>
+              <Icon :name="item.icon" />
             </span>
             <span class="font-medium">{{ t(`nav.${item.key}`) }}</span>
-            <i
-              class="fas fa-chevron-right ml-auto text-xs opacity-30"
+            <Icon
+              name="fa6-solid:chevron-right"
+              class="ml-auto text-xs opacity-30"
               :class="
                 activeSection === item.section ? 'opacity-60 text-teal-400' : ''
               "
-            ></i>
-          </button>
+            />
+          </a>
 
           <a
-            href="https://linkedin.com/in/killian-challeau"
+            href="https://www.linkedin.com/in/killian-challeau"
             target="_blank"
+            rel="noopener"
             @click="mobileMenu = false"
             :style="{ animationDelay: `${items.length * 60}ms` }"
             class="nav-item flex items-center gap-3 w-full px-4 py-3 rounded-xl border border-transparent text-gray-300 hover:bg-gray-800 hover:text-white transition-colors duration-200"
@@ -153,10 +164,10 @@
             <span
               class="w-8 h-8 flex items-center justify-center rounded-lg bg-gray-800 text-gray-400 text-sm"
             >
-              <i class="fab fa-linkedin"></i>
+              <Icon name="fa6-brands:linkedin" />
             </span>
             <span class="font-medium">{{ t("nav.linkedin") }}</span>
-            <i class="fas fa-external-link-alt ml-auto text-xs opacity-30"></i>
+            <Icon name="fa6-solid:arrow-up-right-from-square" class="ml-auto text-xs opacity-30" />
           </a>
         </div>
 
@@ -182,25 +193,30 @@
         <div class="footer-inner">
           <!-- Brand -->
           <div class="footer-brand">
-            <button @click="scrollToSection('home')" class="footer-logo-btn">
+            <a
+              href="#home"
+              @click.prevent="scrollToSection('home')"
+              class="footer-logo-btn"
+            >
               <AtomLogo :size="24" color="#14b8a6" :duration="5000" />
               <span class="footer-logo-text font-signature font-bold"
                 >Kilalo</span
               >
-            </button>
+            </a>
             <p class="footer-tagline">Full Stack & AI Developer · Bordeaux</p>
           </div>
 
           <!-- Nav links -->
           <nav class="footer-nav">
-            <button
+            <a
               v-for="item in items"
               :key="item.section"
-              @click="scrollToSection(item.section)"
+              :href="`#${item.section}`"
+              @click.prevent="scrollToSection(item.section)"
               class="footer-link"
             >
               {{ t(`nav.${item.key}`) }}
-            </button>
+            </a>
           </nav>
 
           <!-- Socials -->
@@ -208,25 +224,27 @@
             <a
               href="https://github.com/kilalo"
               target="_blank"
+              rel="noopener"
               class="footer-social"
               aria-label="GitHub"
             >
-              <i class="fab fa-github"></i>
+              <Icon name="fa6-brands:github" />
             </a>
             <a
-              href="https://linkedin.com/in/killian-challeau"
+              href="https://www.linkedin.com/in/killian-challeau"
               target="_blank"
+              rel="noopener"
               class="footer-social"
               aria-label="LinkedIn"
             >
-              <i class="fab fa-linkedin"></i>
+              <Icon name="fa6-brands:linkedin" />
             </a>
           </div>
         </div>
 
         <div class="footer-bottom">
           <span class="footer-copy"
-            >© 2026 Killian Challeau · Made with Nuxt 3 & Claude Code 🤖</span
+            >© {{ currentYear }} Killian Challeau · Made with Nuxt 3 & Claude Code 🤖</span
           >
           <span class="footer-separator">·</span>
           <span class="footer-copy">kilalo.io</span>
@@ -242,6 +260,15 @@ const { init: initTheme } = useTheme();
 const mobileMenu = ref<boolean>(false);
 const activeSection = ref<string>("home");
 const scrollProgress = ref(0);
+const currentYear = new Date().getFullYear();
+
+// html lang, canonical, hreflang alternates and og:locale for the current locale
+const localeHead = useLocaleHead({ seo: true });
+useHead(() => ({
+  htmlAttrs: { lang: localeHead.value.htmlAttrs?.lang },
+  link: [...(localeHead.value.link || [])],
+  meta: [...(localeHead.value.meta || [])],
+}));
 
 interface MenuItem {
   icon: string;
@@ -250,12 +277,12 @@ interface MenuItem {
 }
 
 const items: MenuItem[] = [
-  { icon: "fas fa-home", key: "home", section: "home" },
-  { icon: "fas fa-lightbulb", key: "projects", section: "projects" },
-  { icon: "fas fa-briefcase", key: "experience", section: "experience" },
-  { icon: "fas fa-code", key: "skills", section: "skills" },
-  { icon: "fas fa-file", key: "resume", section: "resume" },
-  { icon: "fas fa-envelope", key: "contact", section: "contact" },
+  { icon: "fa6-solid:house", key: "home", section: "home" },
+  { icon: "fa6-solid:lightbulb", key: "projects", section: "projects" },
+  { icon: "fa6-solid:briefcase", key: "experience", section: "experience" },
+  { icon: "fa6-solid:code", key: "skills", section: "skills" },
+  { icon: "fa6-solid:file", key: "resume", section: "resume" },
+  { icon: "fa6-solid:envelope", key: "contact", section: "contact" },
 ];
 
 const scrollToSection = (sectionId: string): void => {
@@ -580,7 +607,7 @@ onMounted(() => {
 
 .footer-tagline {
   font-size: 12px;
-  color: #334155;
+  color: #64748b;
   font-weight: 500;
 }
 
@@ -640,11 +667,11 @@ onMounted(() => {
 
 .footer-copy {
   font-size: 12px;
-  color: #1e293b;
+  color: #64748b;
 }
 
 .footer-separator {
   font-size: 12px;
-  color: #1e293b;
+  color: #475569;
 }
 </style>

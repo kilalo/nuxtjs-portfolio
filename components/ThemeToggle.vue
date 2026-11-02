@@ -6,8 +6,8 @@
     :title="isDark ? 'Mode clair' : 'Mode sombre'"
   >
     <Transition name="theme-icon" mode="out-in">
-      <i v-if="isDark" key="sun" class="fas fa-sun"></i>
-      <i v-else key="moon" class="fas fa-moon"></i>
+      <Icon v-if="isDark" key="sun" name="fa6-solid:sun" />
+      <Icon v-else key="moon" name="fa6-solid:moon" />
     </Transition>
   </button>
 </template>

@@ -13,7 +13,8 @@
     "cta": {
       "projects": "View my projects",
       "contact": "Get in touch"
-    }
+    },
+    "role": "Full Stack & AI Developer · Freelance in Bordeaux"
   },
   "projects": {
     "title": "Projects",
@@ -69,7 +70,8 @@
       "role": "Full-Stack Developer",
       "date": "July 2019 - August 2020",
       "description": "E-commerce platform for selling sports equipment."
-    }
+    },
+    "imgAlt": "Screenshot of the {title} project"
   },
   "experience": {
     "title": "Experience",
@@ -113,5 +115,11 @@
       "success": "Message sent successfully!",
       "error": "An error occurred"
     }
+  },
+  "seo": {
+    "title": "Killian Challeau — Freelance Full Stack Developer in Bordeaux",
+    "description": "Freelance full stack web developer based in Bordeaux, France, with 10+ years of experience. Vue/Nuxt, React, Laravel, NestJS, DevOps and agentic AI (LLM, RAG, MCP). Lead tech available for your projects.",
+    "jobTitle": "Freelance Full Stack Developer",
+    "serviceName": "Kilalo — Full stack web & AI development"
   }
 }

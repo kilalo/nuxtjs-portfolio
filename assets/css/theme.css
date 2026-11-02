@@ -128,6 +128,11 @@ html.light-mode .hero-subtitle {
   color: rgba(51, 65, 85, 0.85) !important;
 }
 
+html.light-mode .hero-name__role {
+  color: #0d9488 !important;
+  -webkit-text-fill-color: #0d9488 !important;
+}
+
 html.light-mode .hero-btn--secondary {
   background: rgba(15, 23, 42, 0.05) !important;
   color: rgba(30, 41, 59, 0.85) !important;
@@ -193,6 +198,10 @@ html.light-mode .project-card__date {
 
 html.light-mode .project-card__title {
   color: #0f172a !important;
+}
+
+html.light-mode .project-card__desc {
+  color: #475569 !important;
 }
 
 /* ---------- Tech badges ---------- */

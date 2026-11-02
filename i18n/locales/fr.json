@@ -13,7 +13,8 @@
     "cta": {
       "projects": "Voir mes projets",
       "contact": "Me contacter"
-    }
+    },
+    "role": "Développeur Full Stack & IA · Freelance à Bordeaux"
   },
   "projects": {
     "title": "Projets",
@@ -69,7 +70,8 @@
       "role": "Développeur Full-stack",
       "date": "Juillet 2019 - Août 2020",
       "description": "Plateforme e-commerce de vente d'équipement sportif."
-    }
+    },
+    "imgAlt": "Capture d'écran du projet {title}"
   },
   "experience": {
     "title": "Parcours",
@@ -113,5 +115,11 @@
       "success": "Message envoyé avec succès !",
       "error": "Une erreur est survenue"
     }
+  },
+  "seo": {
+    "title": "Killian Challeau — Développeur Full Stack Freelance à Bordeaux",
+    "description": "Développeur web full stack freelance à Bordeaux, 10+ ans d'expérience. Vue/Nuxt, React, Laravel, NestJS, DevOps et IA agentique (LLM, RAG, MCP). Lead tech disponible pour vos projets.",
+    "jobTitle": "Développeur Full Stack Freelance",
+    "serviceName": "Kilalo — Développement web full stack & IA"
   }
 }

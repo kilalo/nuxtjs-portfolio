@@ -1,25 +1,32 @@
 <template>
   <div class="lang-switch">
-    <button
-      @click="setLocale('fr')"
+    <NuxtLink
+      :to="switchLocalePath('fr')"
+      hreflang="fr"
+      lang="fr"
       class="lang-btn"
       :class="{ active: locale === 'fr' }"
+      :aria-current="locale === 'fr' ? 'true' : undefined"
     >
       FR
-    </button>
+    </NuxtLink>
     <span class="lang-sep"></span>
-    <button
-      @click="setLocale('en')"
+    <NuxtLink
+      :to="switchLocalePath('en')"
+      hreflang="en"
+      lang="en"
       class="lang-btn"
       :class="{ active: locale === 'en' }"
+      :aria-current="locale === 'en' ? 'true' : undefined"
     >
       EN
-    </button>
+    </NuxtLink>
   </div>
 </template>
 
 <script setup lang="ts">
-const { locale, setLocale } = useI18n();
+const { locale } = useI18n();
+const switchLocalePath = useSwitchLocalePath();
 </script>
 
 <style scoped>

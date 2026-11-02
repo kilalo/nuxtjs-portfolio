@@ -3,10 +3,7 @@
     <!-- Section Accueil -->
     <section id="home" class="hero">
       <!-- Content -->
-      <div
-        class="hero-content"
-        :class="{ 'hero-content--visible': heroVisible }"
-      >
+      <div class="hero-content">
         <!-- Badge disponible -->
         <div class="hero-badge reveal" style="--delay: 0ms">
           <span class="hero-badge__dot"></span>
@@ -24,9 +21,10 @@
         </div>
 
         <!-- Nom -->
-        <h1 class="hero-name reveal" style="--delay: 300ms">
+        <h1 class="hero-name reveal reveal--no-fade" style="--delay: 300ms">
           Killian<br class="sm:hidden" />
           <span class="hero-name__last"> Challeau</span>
+          <span class="hero-name__role">{{ t("home.role") }}</span>
         </h1>
 
         <!-- Subtitle typewriter -->
@@ -37,47 +35,47 @@
 
         <!-- CTAs -->
         <div class="hero-ctas reveal" style="--delay: 700ms">
-          <button
-            @click="scrollToSection('projects')"
+          <a
+            href="#projects"
+            @click.prevent="scrollToSection('projects')"
             class="hero-btn hero-btn--primary"
           >
-            <i class="fas fa-lightbulb mr-2"></i>{{ t("home.cta.projects") }}
-          </button>
-          <button
-            @click="scrollToSection('contact')"
+            <Icon name="fa6-solid:lightbulb" class="mr-2" />{{ t("home.cta.projects") }}
+          </a>
+          <a
+            href="#contact"
+            @click.prevent="scrollToSection('contact')"
             class="hero-btn hero-btn--secondary"
           >
-            <i class="fas fa-envelope mr-2"></i>{{ t("home.cta.contact") }}
-          </button>
+            <Icon name="fa6-solid:envelope" class="mr-2" />{{ t("home.cta.contact") }}
+          </a>
         </div>
 
         <!-- Socials -->
         <div class="hero-socials reveal" style="--delay: 900ms">
           <a
-            href="https://linkedin.com/in/killian-challeau"
+            href="https://www.linkedin.com/in/killian-challeau"
             target="_blank"
+            rel="noopener"
             class="hero-social"
             aria-label="LinkedIn"
           >
-            <i class="fab fa-linkedin"></i>
+            <Icon name="fa6-brands:linkedin" />
           </a>
           <a
             href="https://github.com/kilalo"
             target="_blank"
+            rel="noopener"
             class="hero-social"
             aria-label="GitHub"
           >
-            <i class="fab fa-github"></i>
+            <Icon name="fa6-brands:github" />
           </a>
         </div>
       </div>
 
       <!-- Scroll indicator -->
-      <div
-        class="hero-scroll reveal"
-        style="--delay: 1100ms"
-        :class="{ 'hero-content--visible': heroVisible }"
-      >
+      <div class="hero-scroll reveal" style="--delay: 1100ms">
         <div class="hero-scroll__mouse">
           <div class="hero-scroll__dot"></div>
         </div>
@@ -101,7 +99,14 @@
             :style="{ '--reveal-delay': `${index * 80}ms` }"
           >
             <div class="project-card__img">
-              <img :src="project.img" :alt="project.title" />
+              <img
+                :src="project.img"
+                :alt="t('projects.imgAlt', { title: project.title })"
+                width="800"
+                height="520"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="project-card__img-overlay"></div>
             </div>
             <div class="project-card__body">
@@ -110,6 +115,7 @@
                 <span class="project-card__role">{{ project.role }}</span>
               </div>
               <h3 class="project-card__title">{{ project.title }}</h3>
+              <p class="project-card__desc">{{ project.description }}</p>
               <div class="project-card__techs">
                 <span
                   v-for="tech in project.technologies.slice(0, 4)"
@@ -128,15 +134,16 @@
                   v-if="project.link"
                   :href="project.link"
                   target="_blank"
+                  rel="noopener"
                   class="p-btn p-btn--primary"
                 >
-                  <i class="fas fa-link"></i>{{ t("projects.access") }}
+                  <Icon name="fa6-solid:link" />{{ t("projects.access") }}
                 </a>
                 <span v-else-if="!project.prod" class="p-btn p-btn--warn">
-                  <i class="fas fa-wrench"></i>{{ t("projects.notDeployed") }}
+                  <Icon name="fa6-solid:wrench" />{{ t("projects.notDeployed") }}
                 </span>
                 <span v-else class="p-btn p-btn--muted">
-                  <i class="fas fa-lock"></i>{{ t("projects.private") }}
+                  <Icon name="fa6-solid:lock" />{{ t("projects.private") }}
                 </span>
                 <button
                   @click="showProject(project)"
@@ -159,7 +166,7 @@
         >
           <div @click.stop class="modal-box">
             <button @click="selectedProject = null" class="modal-close">
-              <i class="fas fa-times"></i>
+              <Icon name="fa6-solid:xmark" />
             </button>
             <span class="modal-role">{{ selectedProject.role }}</span>
             <h3 class="modal-title">{{ selectedProject.title }}</h3>
@@ -167,8 +174,7 @@
             <p class="modal-desc">{{ selectedProject.description }}</p>
             <ul v-if="selectedProject.more" class="modal-more">
               <li v-for="(item, i) in selectedProject.more" :key="i">
-                <i class="fas fa-chevron-right text-teal-500 text-xs mr-2"></i
-                >{{ item }}
+                <Icon name="fa6-solid:chevron-right" class="text-teal-500 text-xs mr-2" />{{ item }}
               </li>
             </ul>
             <div class="modal-techs">
@@ -218,10 +224,11 @@
                     v-if="item.link"
                     :href="item.link"
                     target="_blank"
+                    rel="noopener"
                     class="tl-link-icon"
                     @click.stop
                   >
-                    <i class="fas fa-arrow-up-right-from-square"></i>
+                    <Icon name="fa6-solid:arrow-up-right-from-square" />
                   </a>
                   <span
                     v-if="item.current"
@@ -323,32 +330,34 @@
           <a
             href="/CV_2026.pdf"
             target="_blank"
+            rel="noopener"
             class="resume-card scroll-reveal"
             style="--reveal-delay: 100ms"
           >
             <div class="resume-card__icon">
-              <i class="fas fa-file-pdf"></i>
+              <Icon name="fa6-solid:file-pdf" />
             </div>
             <div>
               <p class="resume-card__title">PDF</p>
               <p class="resume-card__sub">{{ t("resume.downloadPdf") }}</p>
             </div>
-            <i class="fas fa-arrow-down resume-card__arrow"></i>
+            <Icon name="fa6-solid:arrow-down" class="resume-card__arrow" />
           </a>
           <a
             href="https://resume.kilalo.io"
             target="_blank"
+            rel="noopener"
             class="resume-card scroll-reveal"
             style="--reveal-delay: 200ms"
           >
             <div class="resume-card__icon">
-              <i class="fas fa-globe"></i>
+              <Icon name="fa6-solid:globe" />
             </div>
             <div>
               <p class="resume-card__title">Web</p>
               <p class="resume-card__sub">{{ t("resume.viewOnline") }}</p>
             </div>
-            <i class="fas fa-arrow-up-right-from-square resume-card__arrow"></i>
+            <Icon name="fa6-solid:arrow-up-right-from-square" class="resume-card__arrow" />
           </a>
         </div>
       </div>
@@ -365,10 +374,20 @@
         <div class="contact-wrap scroll-reveal" style="--reveal-delay: 100ms">
           <p class="contact-desc">{{ t("contact.description") }}</p>
           <form @submit.prevent="submitForm" class="contact-form">
+            <input
+              v-model="form.website"
+              type="text"
+              name="website"
+              class="hp-field"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
             <div class="contact-form__row">
               <div class="form-field">
                 <input
                   v-model="form.name"
+                  :aria-label="t('contact.form.name')"
                   type="text"
                   :placeholder="t('contact.form.name')"
                   required
@@ -377,6 +396,7 @@
               <div class="form-field">
                 <input
                   v-model="form.email"
+                  :aria-label="t('contact.form.email')"
                   type="email"
                   :placeholder="t('contact.form.email')"
                   required
@@ -386,6 +406,7 @@
             <div class="form-field">
               <input
                 v-model="form.subject"
+                :aria-label="t('contact.form.subject')"
                 type="text"
                 :placeholder="t('contact.form.subject')"
                 required
@@ -394,6 +415,7 @@
             <div class="form-field">
               <textarea
                 v-model="form.content"
+                :aria-label="t('contact.form.message')"
                 :placeholder="t('contact.form.message')"
                 required
                 rows="5"
@@ -405,7 +427,7 @@
               :disabled="isSubmitting"
               class="p-btn p-btn--primary w-full justify-center"
             >
-              <i class="fas fa-paper-plane mr-2"></i>
+              <Icon name="fa6-solid:paper-plane" class="mr-2" />
               {{
                 isSubmitting
                   ? t("contact.form.sending")
@@ -423,13 +445,13 @@
           class="notif"
           :class="`notif--${notification.type}`"
         >
-          <i
-            :class="
+          <Icon
+            :name="
               notification.type === 'success'
-                ? 'fas fa-check-circle'
-                : 'fas fa-exclamation-circle'
+                ? 'fa6-solid:circle-check'
+                : 'fa6-solid:circle-exclamation'
             "
-          ></i>
+          />
           {{ notification.message }}
         </div>
       </Transition>
@@ -461,15 +483,17 @@ interface ContactForm {
   email: string;
   subject: string;
   content: string;
+  website: string;
 }
 
 const { t, locale } = useI18n();
 const { projects } = useProjects();
 
 // Animated counters
-const animatedYears = ref(0);
-const animatedProjects = ref(0);
-const animatedTechs = ref(0);
+const STATS = { years: 10, projects: 30, techs: 20 };
+const animatedYears = ref(STATS.years);
+const animatedProjects = ref(STATS.projects);
+const animatedTechs = ref(STATS.techs);
 
 const animateCounter = (target: Ref<number>, to: number, duration = 1400) => {
   const start = Date.now();
@@ -569,71 +593,7 @@ const timeline = computed<TimelineItem[]>(() => [
   },
 ]);
 
-const seoTitle = computed(() =>
-  locale.value === "fr"
-    ? "Killian Challeau — Développeur Full Stack Freelance | Bordeaux"
-    : "Killian Challeau — Freelance Full Stack Developer | Bordeaux"
-);
-
-const seoDescription = computed(() =>
-  locale.value === "fr"
-    ? "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux."
-    : "Freelance full stack web developer with 10+ years of experience. Specialized in Vue/Nuxt, React, Laravel, TypeScript, DevOps and agentic AI systems. Available for your projects from Bordeaux."
-);
-
-useSeoMeta({
-  title: seoTitle,
-  ogTitle: seoTitle,
-  description: seoDescription,
-  ogDescription: seoDescription,
-  ogImage: "https://kilalo.io/kilalo-project.jpg",
-  ogUrl: "https://kilalo.io/",
-  ogType: "website",
-  ogSiteName: "Killian Challeau",
-  twitterCard: "summary_large_image",
-  twitterTitle: seoTitle,
-  twitterDescription: seoDescription,
-  twitterImage: "https://kilalo.io/kilalo-project.jpg",
-  robots: "index, follow",
-});
-
-useHead({
-  htmlAttrs: { lang: locale },
-  link: [{ rel: "canonical", href: "https://kilalo.io/" }],
-  script: [
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Person",
-        name: "Killian Challeau",
-        url: "https://kilalo.io",
-        image: "https://kilalo.io/kilalo-project.jpg",
-        jobTitle: "Développeur Full Stack Freelance",
-        description:
-          "Développeur web full stack freelance avec 10+ ans d'expérience, spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique.",
-        address: { "@type": "PostalAddress", addressLocality: "Bordeaux", addressCountry: "FR" },
-        sameAs: [
-          "https://linkedin.com/in/killian-challeau",
-          "https://github.com/kilalo",
-        ],
-        knowsAbout: ["Vue.js", "Nuxt.js", "React", "Laravel", "TypeScript", "Node.js", "Docker", "CI/CD", "LLM", "RAG", "Agentic AI"],
-      }),
-    },
-    {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: "Killian Challeau",
-        url: "https://kilalo.io",
-      }),
-    },
-  ],
-});
-
 // Hero
-const heroVisible = ref(false);
 const terminalText = ref("");
 const terminalDone = ref(false);
 const typewriterText = ref("");
@@ -653,6 +613,7 @@ const typewriterPhrases = computed(() =>
         "Web Architect",
       ],
 );
+typewriterText.value = typewriterPhrases.value[0];
 
 const typeInto = async (target: Ref<string>, text: string, speed = 55) => {
   target.value = "";
@@ -669,10 +630,13 @@ const eraseFrom = async (target: Ref<string>, speed = 30) => {
   }
 };
 
+// The first phrase is already rendered server-side: start by erasing it
 const runTypewriter = async () => {
   let i = 0;
   while (true) {
-    await typeInto(typewriterText, typewriterPhrases.value[i]);
+    if (i > 0 || typewriterText.value !== typewriterPhrases.value[0]) {
+      await typeInto(typewriterText, typewriterPhrases.value[i]);
+    }
     await new Promise((r) => setTimeout(r, 2200));
     await eraseFrom(typewriterText);
     await new Promise((r) => setTimeout(r, 400));
@@ -697,6 +661,7 @@ const form = ref<ContactForm>({
   email: "",
   subject: "",
   content: "",
+  website: "",
 });
 
 const aiTags = [
@@ -758,7 +723,7 @@ const submitForm = async (): Promise<void> => {
       type: "success",
       message: t("contact.form.success"),
     };
-    form.value = { name: "", email: "", subject: "", content: "" };
+    form.value = { name: "", email: "", subject: "", content: "", website: "" };
   } catch {
     notification.value = {
       type: "error",
@@ -772,12 +737,118 @@ const submitForm = async (): Promise<void> => {
   }
 };
 
+// SEO
+const seoTitle = computed(() => t("seo.title"));
+const seoDescription = computed(() => t("seo.description"));
+const ogImage = "https://kilalo.io/kilalo-project.jpg";
+
+// canonical, hreflang, og:locale and html lang come from useLocaleHead() in the layout
+useSeoMeta({
+  title: seoTitle,
+  ogTitle: seoTitle,
+  description: seoDescription,
+  ogDescription: seoDescription,
+  ogImage,
+  ogImageAlt: seoTitle,
+  ogType: "website",
+  ogSiteName: "Killian Challeau",
+  twitterCard: "summary_large_image",
+  twitterTitle: seoTitle,
+  twitterDescription: seoDescription,
+  twitterImage: ogImage,
+  robots: "index, follow, max-image-preview:large",
+});
+
+const siteUrl = "https://kilalo.io";
+const pageUrl = computed(() =>
+  locale.value === "fr" ? `${siteUrl}/` : `${siteUrl}/${locale.value}`,
+);
+
+useHead({
+  script: [
+    {
+      key: "ld-json",
+      type: "application/ld+json",
+      innerHTML: computed(() =>
+        JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              "@id": `${siteUrl}/#person`,
+              name: "Killian Challeau",
+              alternateName: "Kilalo",
+              url: siteUrl,
+              image: ogImage,
+              jobTitle: t("seo.jobTitle"),
+              description: seoDescription.value,
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Bordeaux",
+                addressRegion: "Nouvelle-Aquitaine",
+                addressCountry: "FR",
+              },
+              knowsLanguage: ["fr", "en"],
+              sameAs: [
+                "https://www.linkedin.com/in/killian-challeau",
+                "https://github.com/kilalo",
+                "https://resume.kilalo.io",
+              ],
+              knowsAbout: sphereTags.map((tag) => tag.label),
+            },
+            {
+              "@type": "ProfessionalService",
+              "@id": `${siteUrl}/#service`,
+              name: t("seo.serviceName"),
+              url: pageUrl.value,
+              image: ogImage,
+              description: seoDescription.value,
+              founder: { "@id": `${siteUrl}/#person` },
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Bordeaux",
+                addressCountry: "FR",
+              },
+              areaServed: [
+                { "@type": "City", name: "Bordeaux" },
+                { "@type": "Country", name: "France" },
+              ],
+              priceRange: "€€",
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${siteUrl}/#website`,
+              name: "Killian Challeau",
+              url: siteUrl,
+              inLanguage: ["fr-FR", "en-GB"],
+              publisher: { "@id": `${siteUrl}/#person` },
+            },
+            {
+              "@type": "ItemList",
+              name: t("projects.title"),
+              itemListElement: projects.value.map((project, i) => ({
+                "@type": "ListItem",
+                position: i + 1,
+                item: {
+                  "@type": "CreativeWork",
+                  name: project.title,
+                  description: project.description,
+                  image: `${siteUrl}${project.img}`,
+                  ...(project.link ? { url: project.link } : {}),
+                  creator: { "@id": `${siteUrl}/#person` },
+                },
+              })),
+            },
+          ],
+        }),
+      ),
+    },
+  ],
+});
+
 onMounted(async () => {
   if (process.client) {
     // Hero
-    setTimeout(() => {
-      heroVisible.value = true;
-    }, 100);
     setTimeout(() => runTerminal(), 300);
     setTimeout(() => runTypewriter(), 900);
 
@@ -787,9 +858,9 @@ onMounted(async () => {
       const counterObserver = new IntersectionObserver(
         (entries) => {
           if (entries[0].isIntersecting) {
-            animateCounter(animatedYears, 10);
-            animateCounter(animatedProjects, 30);
-            animateCounter(animatedTechs, 20);
+            animateCounter(animatedYears, STATS.years);
+            animateCounter(animatedProjects, STATS.projects);
+            animateCounter(animatedTechs, STATS.techs);
             counterObserver.disconnect();
           }
         },
@@ -847,17 +918,28 @@ onMounted(async () => {
 
 /* Reveal animation */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-  transition-delay: var(--delay, 0ms);
+  animation: heroReveal 0.7s ease both;
+  animation-delay: var(--delay, 0ms);
 }
-.hero-content--visible .reveal,
-.hero-content--visible.reveal {
-  opacity: 1;
-  transform: translateY(0);
+/* The h1 is the LCP element: slide it in without hiding it */
+.reveal--no-fade {
+  animation-name: heroSlide;
+}
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+@keyframes heroSlide {
+  from {
+    transform: translateY(24px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
 }
 
 /* Badge */
@@ -951,6 +1033,17 @@ onMounted(async () => {
 }
 .hero-name__last {
   white-space: nowrap;
+}
+.hero-name__role {
+  display: block;
+  margin-top: 1rem;
+  font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  line-height: 1.4;
+  -webkit-text-fill-color: #5eead4;
+  color: #5eead4;
 }
 
 /* Subtitle typewriter */
@@ -1208,6 +1301,22 @@ onMounted(async () => {
   font-size: 1.2rem;
   font-weight: 700;
   color: #f1f5f9;
+}
+.project-card__desc {
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: #94a3b8;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 .project-card__techs {
   display: flex;

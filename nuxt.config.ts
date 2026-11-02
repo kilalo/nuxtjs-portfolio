@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     externals: {
       external: ["nodemailer"],
     },
+    compressPublicAssets: true,
   },
 
   runtimeConfig: {
@@ -17,12 +18,25 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: true },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/i18n"],
+  site: {
+    url: "https://kilalo.io",
+    name: "Killian Challeau",
+  },
+
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxtjs/i18n",
+    "@nuxt/icon",
+    "@nuxt/fonts",
+    "@nuxtjs/sitemap",
+  ],
 
   i18n: {
+    baseUrl: "https://kilalo.io",
+    strategy: "prefix_except_default",
     locales: [
-      { code: "fr", file: "fr.json" },
-      { code: "en", file: "en.json" },
+      { code: "fr", language: "fr-FR", file: "fr.json" },
+      { code: "en", language: "en-GB", file: "en.json" },
     ],
     langDir: "locales/",
     defaultLocale: "fr",
@@ -30,78 +44,42 @@ export default defineNuxtConfig({
     detectBrowserLanguage: false,
   },
 
+  icon: {
+    // Icons are bundled at build time: no client-side request to the Iconify API
+    serverBundle: { collections: ["fa6-solid", "fa6-brands"] },
+    clientBundle: { scan: true },
+  },
+
+  fonts: {
+    families: [{ name: "Inter", provider: "google", weights: [300, 400, 500, 600, 700, 800] }],
+  },
+
+  sitemap: {
+    // A single /sitemap.xml with hreflang alternates instead of one sitemap per locale
+    sitemaps: false,
+    exclude: ["/api/**"],
+  },
+
+  routeRules: {
+    "/": { prerender: true },
+    "/en": { prerender: true },
+    "/images/**": {
+      headers: { "cache-control": "public, max-age=2592000, stale-while-revalidate=86400" },
+    },
+  },
+
   css: ["~/assets/css/fonts.css", "~/assets/css/theme.css"],
 
   app: {
     head: {
-      title: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
-        {
-          name: "keywords",
-          content:
-            "killian challeau, développeur full stack, freelance, bordeaux, vue, nuxt, react, laravel, typescript, nodejs, devops, docker, ci/cd, ia agentique, llm, rag, lead tech, web developer, kilalo",
-        },
-        {
-          name: "description",
-          content:
-            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux.",
-        },
         { name: "author", content: "Killian Challeau" },
-        { name: "robots", content: "index, follow" },
-        {
-          property: "og:title",
-          content: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
-        },
-        { property: "og:type", content: "website" },
-        { property: "og:url", content: "https://kilalo.io/" },
-        { property: "og:site_name", content: "Killian Challeau" },
-        {
-          property: "og:description",
-          content:
-            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique. Disponible pour vos projets depuis Bordeaux.",
-        },
-        {
-          property: "og:image",
-          content: "https://kilalo.io/kilalo-project.jpg",
-        },
-        { property: "og:locale", content: "fr_FR" },
-        { property: "og:locale:alternate", content: "en_GB" },
-        { name: "twitter:card", content: "summary_large_image" },
-        {
-          name: "twitter:title",
-          content: "Killian Challeau — Développeur Full Stack Freelance | Bordeaux",
-        },
-        {
-          name: "twitter:description",
-          content:
-            "Développeur web full stack freelance avec 10+ ans d'expérience. Spécialisé Vue/Nuxt, React, Laravel, TypeScript, DevOps et IA agentique.",
-        },
-        {
-          name: "twitter:image",
-          content: "https://kilalo.io/kilalo-project.jpg",
-        },
+        { name: "theme-color", content: "#0f172a" },
       ],
       link: [
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
-        {
-          rel: "stylesheet",
-          href: "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.googleapis.com",
-        },
-        {
-          rel: "preconnect",
-          href: "https://fonts.gstatic.com",
-          crossorigin: "anonymous",
-        },
-        {
-          rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap",
-        },
       ],
     },
   },
